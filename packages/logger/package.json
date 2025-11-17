@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "type": "module",
     "peerDependencies": {
-        "next": "15.x",
+        "next": "^15.4.7",
         "react": "19.x"
     },
     "dependencies": {
@@ -15,11 +15,14 @@
     "devDependencies": {
         "@tooling/eslint": "workspace:*",
         "@tooling/prettier": "workspace:*",
-        "@tooling/typescript": "workspace:*"
+        "@tooling/typescript": "workspace:*",
+        "typescript": "^5.8.3"
     },
     "prettier": "@tooling/prettier/config",
     "scripts": {
         "format": "prettier-format --write ./*.ts",
-        "lint": "eslint-lint --config eslint.config.js './**/*.ts'"
+        "lint": "eslint-lint --config eslint.config.js './**/*.ts'",
+        "lint:fix": "yarn lint --fix",
+        "types-check": "tsc --noEmit"
     }
 }

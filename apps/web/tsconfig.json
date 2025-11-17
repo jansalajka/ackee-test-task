@@ -13,4 +13,8 @@
         "**/*.ts",
         "**/*.tsx"
     ],
+  "exclude": [
+    "cypress",
+    "node_modules"
+  ]
 }

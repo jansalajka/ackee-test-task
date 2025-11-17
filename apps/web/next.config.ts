@@ -106,11 +106,14 @@ const nextConfig: NextConfig = {
                         // Default directive allows resources to be loaded only from the same origin
                         `default-src 'self'`,
 
-                        // Allows fetch/xhr requests to the same origin and Google APIs
-                        `connect-src 'self' https://*.googleapis.com ${new URL(env.NEXT_PUBLIC_SENTRY_REPORT_URI).origin}`,
+                        // Allows fetch/xhr requests to the same origin, Google APIs, fake API, and Apiary mock
+                        `connect-src 'self' https://*.googleapis.com https://my-json-server.typicode.com https://*.apiary-mock.com ${new URL(env.NEXT_PUBLIC_SENTRY_REPORT_URI).origin}`,
 
                         // Allows images to be loaded from the same origin and Google APIs, and data URIs
                         `img-src 'self' https://www.google.com data:`,
+
+                        // Allows fonts to be loaded from the same origin and Google Fonts
+                        `font-src 'self' https://fonts.gstatic.com data:`,
 
                         // Allows web/serviec workers to be loaded from the same origin and blob URIs
                         `worker-src 'self' blob:`,
@@ -120,11 +123,17 @@ const nextConfig: NextConfig = {
                         `frame-ancestors 'none'`,
 
                         // FIXME: use `once` instead of `unsafe-inline` for inline scripts
-                        // For local server only:
+                        // Allows styles from same origin, inline styles, and Google Fonts
                         ...(process.env.NODE_ENV === 'development'
-                            ? [`style-src 'self' 'unsafe-inline'`, `style-src-elem 'self' 'unsafe-inline'`]
+                            ? [
+                                  `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`,
+                                  `style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com`,
+                              ]
                             // Allows inline styles (using 'nonce' instead of 'unsafe-inline' would be more secure)
-                            : [`style-src 'self' 'unsafe-inline'`]),
+                            : [
+                                  `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`,
+                                  `style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com`,
+                              ]),
 
                         // Forces HTTPS for all requests
                         'upgrade-insecure-requests',

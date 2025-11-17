@@ -13,6 +13,7 @@ export const env = createEnv({
     shared: {
         NEXT_PUBLIC_SENTRY_DSN: process.env.NODE_ENV === 'development' ? z.string().optional() : z.string(),
         NEXT_PUBLIC_DEV_SENTRY_DISABLED: bool.optional(),
+        NEXT_PUBLIC_API_BASE_URL: z.string().url().optional(),
     },
     /**
      * Specify your server-side environment variables schema here. This way you can ensure the app isn't
@@ -38,6 +39,7 @@ export const env = createEnv({
         NEXT_PUBLIC_DEV_SENTRY_DISABLED:
             process.env.NODE_ENV === 'development' ? process.env.NEXT_PUBLIC_DEV_SENTRY_DISABLED : undefined,
         NEXT_PUBLIC_SENTRY_REPORT_URI: process.env.NEXT_PUBLIC_SENTRY_REPORT_URI,
+        NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
     },
     skipValidation: !!process.env.SKIP_ENV_VALIDATION || process.env.npm_lifecycle_event === 'lint',
 });

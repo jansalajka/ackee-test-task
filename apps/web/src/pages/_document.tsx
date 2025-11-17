@@ -10,7 +10,19 @@ function MyDocument({}: MyDocumentProps) {
         <Html lang='en'>
             <Head>
                 <meta name='theme-color' content='#000' />
-                <link rel='shortcut icon' href='/favicon.ico' />
+                <link rel='icon' type='image/svg+xml' href='/ackee.svg' />
+                <link rel='shortcut icon' href='/ackee.svg' />
+                <link rel='preconnect' href='https://fonts.googleapis.com' />
+                <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+                <link
+                    href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'
+                    rel='stylesheet'
+                />
+                <style>{`
+                    html, body {
+                        font-family: 'Roboto', sans-serif;
+                    }
+                `}</style>
             </Head>
             <body>
                 <Main />

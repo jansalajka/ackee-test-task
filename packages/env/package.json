@@ -4,14 +4,17 @@
     "module": "module",
     "dependencies": {
         "@t3-oss/env-nextjs": "0.11.1",
+        "dotenv": "16.5.0",
         "zod": "3.25.23"
     },
     "devDependencies": {
         "@tooling/prettier": "workspace:*",
-        "@tooling/typescript": "workspace:*"
+        "@tooling/typescript": "workspace:*",
+        "typescript": "^5.8.3"
     },
     "prettier": "@tooling/prettier/config",
     "scripts": {
-        "format": "prettier-format --write ./**/*.{ts,mjs}"
+        "format": "prettier-format --write ./**/*.{ts,mjs}",
+        "types-check": "tsc --noEmit"
     }
 }

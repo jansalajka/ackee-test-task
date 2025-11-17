@@ -45,26 +45,39 @@ We are using our skeleton written in Typescript and based on create-next-app =>Â
 
     You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## Envs
-
--   For local development, you need to provide `.env.local` with those vars placed in the `apps/web`. 
-
-## Localizations
-
-For localizations we use our library for parsing google spreadsheets called LokÅ¡e => https://github.com/AckeeCZ/lokse and it works with the google spreadsheet with all texts used in the app to be more easy to fill it for the customer.
-Spreadsheet => https://docs.google.com/spreadsheets/d/1snXqnscRrXD6DDSYOUefgiVDo1GwoTFaUGiS-3-UJYM/edit#gid=0
-
-To update translations:
+### Unit tests
 
 ```bash
-yarn localize
+yarn workspace web test          # watch mode
+yarn workspace web test:ci       # CI / single run
 ```
 
-To open translations:
+### Linting & type checks
 
-```sh
-yarn lokse
+```bash
+yarn lint
+yarn types-check
 ```
+
+### Cypress end-to-end tests
+
+Interactive runner:
+
+```bash
+yarn workspace web cypress:open
+```
+
+Headless run (also executed by the `pre-commit` hook):
+
+```bash
+yarn workspace web cypress:run
+```
+
+> **Note:** Cypress tests expect the development server to be running locally on port 3000.
+
+## Envs
+
+- For local development, you need to provide `.env.local` with those vars placed in the `apps/web`.
 
 ## Storybook
 
@@ -73,10 +86,6 @@ We use Storybook for design system of UI components. You can build it and run wi
 ```bash
 yarn storybook:dev
 ```
-
-## Icon generator
-
-For better developer experience we use icon generator. If you want to use it - just add an svg icon to the `src/modules/ui/Icons/Icons/assets` folder and then run:
 
 ```bash
 yarn generate-icons

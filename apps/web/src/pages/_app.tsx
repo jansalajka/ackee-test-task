@@ -8,18 +8,21 @@ import { ErrorBoundary } from '@workspace/errors';
 
 import { AppQueryProvider } from '~modules/api/components';
 import { Intl } from '~modules/intl/components';
+import { FelaProvider } from '~modules/fela';
 
 export interface ExtendedAppProps extends AppProps {}
 
 function App({ Component, pageProps }: ExtendedAppProps) {
     return (
         <ErrorBoundary>
-            <AppQueryProvider dehydratedState={pageProps.dehydratedState}>
-                <Intl>
-                    <Component {...pageProps} />
-                </Intl>
-                <ReactQueryDevtools initialIsOpen={false} />
-            </AppQueryProvider>
+            <FelaProvider>
+                <AppQueryProvider dehydratedState={pageProps.dehydratedState}>
+                    <Intl>
+                        <Component {...pageProps} />
+                    </Intl>
+                    <ReactQueryDevtools initialIsOpen={false} />
+                </AppQueryProvider>
+            </FelaProvider>
         </ErrorBoundary>
     );
 }

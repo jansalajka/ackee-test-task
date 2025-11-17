@@ -1,1 +1,4 @@
-export enum ApiQueryKey {}
+export enum ApiQueryKey {
+    RECIPES = 'recipes',
+    RECIPE = 'recipe',
+}

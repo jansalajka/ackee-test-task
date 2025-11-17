@@ -60,3 +60,9 @@ yalc.lock
 .cache
 
 .env.local
+
+# Integration tests that call real API
+packages/api/hooks/test-hooks-real-api.test.ts
+
+# Environment files
+.env
