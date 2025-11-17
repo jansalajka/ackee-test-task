@@ -1,3 +1,4 @@
+import React from 'react';
 import { renderHook } from '@testing-library/react';
 import type { FieldErrors } from 'react-hook-form';
 import { IntlProvider } from 'react-intl';

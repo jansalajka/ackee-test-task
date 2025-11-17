@@ -1,9 +1,15 @@
+import React from 'react';
 import { renderHook } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 
 import { useLocalizedResolver } from './useLocalizedResolver';
+
+const requiredErrorMessage = 'form.error.required' as any;
+const requiredString = () => z.string(
+    { required_error: requiredErrorMessage }).min(1, { message: requiredErrorMessage }
+);
 
 const createWrapper = (locale: string = 'en', messages: Record<string, string> = {}) => {
     return ({ children }: { children: React.ReactNode }) => (
@@ -16,7 +22,7 @@ const createWrapper = (locale: string = 'en', messages: Record<string, string> =
 describe('useLocalizedResolver', () => {
     it('should return a resolver function', () => {
         const schema = z.object({
-            name: z.string({ required_error: 'form.error.required' as any }),
+            name: requiredString(),
         });
 
         const { result } = renderHook(() => useLocalizedResolver(schema), {
@@ -28,7 +34,7 @@ describe('useLocalizedResolver', () => {
 
     it('should validate valid data', async () => {
         const schema = z.object({
-            name: z.string({ required_error: 'form.error.required' as any }),
+            name: requiredString(),
         });
 
         const { result } = renderHook(() => useLocalizedResolver(schema), {
@@ -44,7 +50,7 @@ describe('useLocalizedResolver', () => {
 
     it('should return translated errors for invalid data', async () => {
         const schema = z.object({
-            name: z.string({ required_error: 'form.error.required' as any }),
+            name: requiredString(),
         });
 
         const { result } = renderHook(() => useLocalizedResolver(schema), {
@@ -65,7 +71,7 @@ describe('useLocalizedResolver', () => {
     it('should handle nested object errors', async () => {
         const schema = z.object({
             user: z.object({
-                name: z.string({ required_error: 'form.error.required' as any }),
+                name: requiredString(),
             }),
         });
 
@@ -87,7 +93,7 @@ describe('useLocalizedResolver', () => {
     it('should handle schema with effects', async () => {
         const schema = z
             .object({
-                name: z.string({ required_error: 'form.error.required' as any }),
+                name: requiredString(),
             })
             .refine(obj => obj.name.length > 0);
 
@@ -103,7 +109,7 @@ describe('useLocalizedResolver', () => {
 
     it('should memoize resolver function', () => {
         const schema = z.object({
-            name: z.string({ required_error: 'form.error.required' as any }),
+            name: requiredString(),
         });
 
         const { result, rerender } = renderHook(() => useLocalizedResolver(schema), {
@@ -119,11 +125,11 @@ describe('useLocalizedResolver', () => {
 
     it('should update resolver when schema changes', () => {
         const schema1 = z.object({
-            name: z.string({ required_error: 'form.error.required' as any }),
+            name: requiredString(),
         });
 
         const schema2 = z.object({
-            email: z.string({ required_error: 'form.error.required' as any }),
+            email: requiredString(),
         });
 
         const { result, rerender } = renderHook(
@@ -145,11 +151,11 @@ describe('useLocalizedResolver', () => {
         const schema = z.union([
             z.object({
                 type: z.literal('email'),
-                value: z.string({ required_error: 'form.error.required' as any }),
+                value: requiredString(),
             }),
             z.object({
                 type: z.literal('phone'),
-                value: z.string({ required_error: 'form.error.required' as any }),
+                value: requiredString(),
             }),
         ]);
 

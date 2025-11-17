@@ -17,6 +17,9 @@
         "types-check": "turbo run types-check --parallel",
         "format": "turbo run format --parallel",
         "audit": "yarn npm audit --severity moderate --environment production --all",
+        "cy:open": "yarn workspace web cypress:open",
+        "cy:run": "yarn workspace web cypress:run",
+        "vitest": "yarn workspace web vitest",
         "pre-commit": "prettier-format --staged --log-level=log && yarn lint:fix && yarn types-check && yarn workspace web cypress:run"
     },
     "workspaces": [

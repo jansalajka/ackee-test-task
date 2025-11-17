@@ -11,10 +11,14 @@ type TranslateUtils = {
 };
 
 describe('translateErrors', () => {
-    const mockFormatMessage = (id: string) => `translated:${id}`;
+    const mockFormatMessage: TranslateUtils['formatMessage'] = descriptor => {
+        const id = descriptor.id ?? '';
+
+        return `translated:${id}`;
+    };
 
     const createTranslateUtils = (): TranslateUtils => ({
-        formatMessage: mockFormatMessage as ReturnType<typeof useIntl>['formatMessage'],
+        formatMessage: mockFormatMessage,
     });
 
     describe('translateObjectErrors', () => {
