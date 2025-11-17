@@ -8,7 +8,7 @@ Shared Ackee starter based on `create-next-app`.
 corepack enable
 yarn
 # download/copy env file for apps/web
-cp apps/web/.env.local.example apps/web/.env.local
+cp apps/web/.env.template.local apps/web/.env.local
 yarn dev
 ```
 
