@@ -16,7 +16,7 @@ export interface ClockIconProps extends Omit<SVGProps<SVGSVGElement>, 'fill'> {
  * @param props - Additional SVG attributes
  * @returns Clock icon element
  */
-export function ClockIcon({ color = colors.gray.dark, size = 16, ...props }: ClockIconProps) {
+export function ClockIcon({ color = colors.gray.dark, size = 16, ...props }: ClockIconProps): JSX.Element {
     const { css } = useFela();
 
     const iconStyles = {

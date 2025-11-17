@@ -13,7 +13,7 @@ export interface LoadingPageTemplateProps {
  * @param header - Header component to display
  * @returns Loading page template with spinner
  */
-export function LoadingPageTemplate({ header }: LoadingPageTemplateProps) {
+export function LoadingPageTemplate({ header }: LoadingPageTemplateProps): JSX.Element {
     return (
         <>
             {header}

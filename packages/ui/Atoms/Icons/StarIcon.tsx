@@ -18,7 +18,7 @@ export interface StarIconProps extends Omit<SVGProps<SVGSVGElement>, 'fill'> {
  * @param props - Additional SVG attributes
  * @returns Star icon element
  */
-export function StarIcon({ color = colors.pink, filled = false, size = 16, ...props }: StarIconProps) {
+export function StarIcon({ color = colors.pink, filled = false, size = 16, ...props }: StarIconProps): JSX.Element {
     const { css } = useFela();
 
     const iconStyles = {

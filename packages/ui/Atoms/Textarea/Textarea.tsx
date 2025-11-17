@@ -42,7 +42,7 @@ export function Textarea({
     size,
     defaultValue,
     ...props
-}: TextareaProps) {
+}: TextareaProps): JSX.Element {
     const { css } = useFela();
     const [isFocused, setIsFocused] = useState(false);
     const initialValue = value ?? defaultValue ?? '';

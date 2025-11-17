@@ -16,7 +16,7 @@ export interface RecipePageHeaderProps {
  * @param newRecipeHref - URL for the new recipe link (plus icon)
  * @returns Recipe page header element
  */
-export function RecipePageHeader({ homeHref, newRecipeHref }: RecipePageHeaderProps) {
+export function RecipePageHeader({ homeHref, newRecipeHref }: RecipePageHeaderProps): JSX.Element {
     return (
         <Header
             headline=""

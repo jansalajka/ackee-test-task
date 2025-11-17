@@ -20,7 +20,7 @@ const iconStyles = {
  * @param props - Additional SVG attributes
  * @returns Arrow left icon element
  */
-export function ArrowLeftIcon({ color = colors.blue, ...props }: ArrowLeftIconProps) {
+export function ArrowLeftIcon({ color = colors.blue, ...props }: ArrowLeftIconProps): JSX.Element {
     const { css } = useFela();
 
     return (

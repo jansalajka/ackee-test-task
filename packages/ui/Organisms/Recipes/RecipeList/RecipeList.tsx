@@ -30,7 +30,7 @@ export function RecipeList({
     translate,
     getRecipeImage,
     convertScoreToStars,
-}: RecipeListProps) {
+}: RecipeListProps): JSX.Element {
     const { css } = useFela();
 
     return (

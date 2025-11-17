@@ -34,7 +34,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
  * @param props - Additional HTML input attributes
  * @returns Input element with label and optional error message
  */
-export function Input({ label, error, onFocus, onBlur, value, onChange, placeholder, size, defaultValue, ...props }: InputProps) {
+export function Input({ label, error, onFocus, onBlur, value, onChange, placeholder, size, defaultValue, ...props }: InputProps): JSX.Element {
     const { css } = useFela();
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const initialValue = value ?? defaultValue ?? '';

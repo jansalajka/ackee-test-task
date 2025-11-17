@@ -15,7 +15,7 @@ export interface LoadingProps {
  * @param height - Image height in pixels (default: 48)
  * @returns Loading spinner element
  */
-export function Loading({ width = 48, height = 48 }: LoadingProps) {
+export function Loading({ width = 48, height = 48 }: LoadingProps): JSX.Element {
     const { css } = useFela();
 
     return (

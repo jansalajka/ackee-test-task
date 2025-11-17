@@ -33,7 +33,7 @@ export interface RecipeItemProps {
  * @param convertScoreToStars - Function to convert recipe score to star count
  * @returns Recipe item element with link
  */
-export function RecipeItem({ recipe, href, translate, getRecipeImage, convertScoreToStars }: RecipeItemProps) {
+export function RecipeItem({ recipe, href, translate, getRecipeImage, convertScoreToStars }: RecipeItemProps): JSX.Element {
     const { css } = useFela();
 
     const recipeImage = getRecipeImage(recipe.id);

@@ -51,7 +51,7 @@ export interface RecipeDetailPageTemplateProps {
  * @param dependencies - Required dependencies (translate, getRecipeImage, convertScoreToStars, cookies)
  * @returns Recipe detail page template
  */
-export function RecipeDetailPageTemplate({ header, recipe, dependencies }: RecipeDetailPageTemplateProps) {
+export function RecipeDetailPageTemplate({ header, recipe, dependencies }: RecipeDetailPageTemplateProps): JSX.Element {
     const { css } = useFela();
     const { translate, getRecipeImage, convertScoreToStars, cookies } = dependencies;
 

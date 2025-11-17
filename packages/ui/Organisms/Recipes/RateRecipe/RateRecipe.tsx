@@ -36,7 +36,7 @@ export interface RateRecipeDependencies {
  * @param cookies - Cookie utility functions for storing ratings
  * @returns Recipe rating element
  */
-export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & RateRecipeDependencies) {
+export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & RateRecipeDependencies): JSX.Element | null {
     const { css } = useFela();
     const [selectedRating, setSelectedRating] = useState<number | null>(() => {
         if (!cookies) {

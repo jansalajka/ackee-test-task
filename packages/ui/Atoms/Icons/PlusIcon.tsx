@@ -16,7 +16,7 @@ export interface PlusIconProps extends Omit<SVGProps<SVGSVGElement>, 'fill'> {
  * @param props - Additional SVG attributes
  * @returns Plus icon element
  */
-export function PlusIcon({ color = colors.blue, size = 24, ...props }: PlusIconProps) {
+export function PlusIcon({ color = colors.blue, size = 24, ...props }: PlusIconProps): JSX.Element {
     const { css } = useFela();
 
     const iconStyles = {

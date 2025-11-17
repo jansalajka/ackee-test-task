@@ -15,7 +15,7 @@ export interface RecipeHeaderContentProps {
  * @param title - Recipe title to display
  * @returns Recipe header content element with blurred background
  */
-export function RecipeHeaderContent({ imageUrl, title }: RecipeHeaderContentProps) {
+export function RecipeHeaderContent({ imageUrl, title }: RecipeHeaderContentProps): JSX.Element {
     const { css } = useFela();
 
     const headerSectionStyles = {

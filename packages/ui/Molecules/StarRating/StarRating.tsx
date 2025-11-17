@@ -18,7 +18,7 @@ export interface StarRatingProps {
  * @param starColor - Color for the stars
  * @returns Star rating element
  */
-export function StarRating({ stars, totalStars = 5, starColor }: StarRatingProps) {
+export function StarRating({ stars, totalStars = 5, starColor }: StarRatingProps): JSX.Element {
     const { css } = useFela();
 
     const filledStars = Math.max(0, Math.min(totalStars, stars));

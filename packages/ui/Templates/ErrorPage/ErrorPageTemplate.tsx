@@ -19,7 +19,7 @@ export interface ErrorPageProps {
  * @param message - Error message text
  * @returns Error page template
  */
-export function ErrorPageTemplate({ header, title, message }: ErrorPageProps) {
+export function ErrorPageTemplate({ header, title, message }: ErrorPageProps): JSX.Element {
     const { css } = useFela();
 
     return (

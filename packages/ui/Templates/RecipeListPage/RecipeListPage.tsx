@@ -33,7 +33,7 @@ export function RecipeListPageTemplate({
     translate,
     getRecipeImage,
     convertScoreToStars,
-}: RecipeListPageTemplateProps) {
+}: RecipeListPageTemplateProps): JSX.Element {
     return (
         <>
             {header}

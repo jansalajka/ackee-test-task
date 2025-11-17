@@ -53,7 +53,7 @@ export interface NewRecipeFormProps {
  * @param onPendingChange - Optional callback when pending state changes
  * @returns Recipe form element
  */
-export function NewRecipeForm({ dependencies, onPendingChange }: NewRecipeFormProps) {
+export function NewRecipeForm({ dependencies, onPendingChange }: NewRecipeFormProps): JSX.Element {
     const { translate, onSubmit, isPending = false, error } = dependencies;
     const { css } = useFela();
 

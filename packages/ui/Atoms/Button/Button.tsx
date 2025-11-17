@@ -20,7 +20,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * @param props - Additional HTML button attributes
  * @returns Button element
  */
-export function Button({ children, variant = ButtonVariantEnum.DEFAULT, icon, ...props }: ButtonProps) {
+export function Button({ children, variant = ButtonVariantEnum.DEFAULT, icon, ...props }: ButtonProps): JSX.Element {
     const { css } = useFela();
     const styles = variant === ButtonVariantEnum.ICON ? iconButtonStyles : buttonStyles;
 

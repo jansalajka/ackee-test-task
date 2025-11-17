@@ -13,4 +13,4 @@ import en from './all.en';
 export const translations = {
     [languages.EN]: en,
     [languages.CS]: cs,
-} as const satisfies Record<Language, Record<keyof typeof en | keyof typeof cs, string>>;
+} as const satisfies Record<Language, Record<keyof typeof cs, string>>;
