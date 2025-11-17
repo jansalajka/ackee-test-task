@@ -8,6 +8,14 @@ export interface ClockIconProps extends Omit<SVGProps<SVGSVGElement>, 'fill'> {
     size?: number;
 }
 
+/**
+ * Clock icon component
+ *
+ * @param color - Icon color (default: dark gray)
+ * @param size - Icon size in pixels (default: 16)
+ * @param props - Additional SVG attributes
+ * @returns Clock icon element
+ */
 export function ClockIcon({ color = colors.gray.dark, size = 16, ...props }: ClockIconProps) {
     const { css } = useFela();
 

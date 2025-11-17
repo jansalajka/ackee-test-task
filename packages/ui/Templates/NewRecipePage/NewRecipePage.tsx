@@ -13,6 +13,10 @@ export interface NewRecipePageTemplateProps {
 /**
  * Template for new recipe page
  * Accepts form component as prop
+ *
+ * @param header - Header component to display
+ * @param form - Form component to display
+ * @returns New recipe page template
  */
 export function NewRecipePageTemplate({ header, form }: NewRecipePageTemplateProps) {
     const { css } = useFela();

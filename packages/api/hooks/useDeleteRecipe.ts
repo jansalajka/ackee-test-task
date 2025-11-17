@@ -6,6 +6,8 @@ import { useApiConfig } from '../context/ApiConfigContext';
 
 /**
  * Hook to delete a recipe
+ *
+ * @returns React Query mutation object for deleting a recipe
  */
 export function useDeleteRecipe() {
     const queryClient = useQueryClient();

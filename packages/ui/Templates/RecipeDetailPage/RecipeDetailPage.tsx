@@ -45,6 +45,11 @@ export interface RecipeDetailPageTemplateProps {
 /**
  * Template for recipe detail page
  * Accepts recipe as prop instead of fetching it
+ *
+ * @param header - Header component to display
+ * @param recipe - Recipe detail data to display
+ * @param dependencies - Required dependencies (translate, getRecipeImage, convertScoreToStars, cookies)
+ * @returns Recipe detail page template
  */
 export function RecipeDetailPageTemplate({ header, recipe, dependencies }: RecipeDetailPageTemplateProps) {
     const { css } = useFela();

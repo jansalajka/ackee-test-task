@@ -11,6 +11,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: ReactNode;
 }
 
+/**
+ * Button component with optional icon
+ *
+ * @param children - Button label/content
+ * @param variant - Button variant style (default or icon-only)
+ * @param icon - Optional icon to display before the label
+ * @param props - Additional HTML button attributes
+ * @returns Button element
+ */
 export function Button({ children, variant = ButtonVariantEnum.DEFAULT, icon, ...props }: ButtonProps) {
     const { css } = useFela();
     const styles = variant === ButtonVariantEnum.ICON ? iconButtonStyles : buttonStyles;

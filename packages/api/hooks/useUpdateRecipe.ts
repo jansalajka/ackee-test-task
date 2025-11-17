@@ -4,6 +4,11 @@ import { ApiMutationKey, ApiQueryKey } from '../constants';
 import { useApiConfig } from '../context/ApiConfigContext';
 import { updateRecipeResponseSchema, type UpdateRecipeRequest } from '../types';
 
+/**
+ * Hook to update an existing recipe
+ *
+ * @returns React Query mutation object for updating a recipe
+ */
 export function useUpdateRecipe() {
     const queryClient = useQueryClient();
     const { apiBaseUrl } = useApiConfig();

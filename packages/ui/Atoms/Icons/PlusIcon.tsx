@@ -8,6 +8,14 @@ export interface PlusIconProps extends Omit<SVGProps<SVGSVGElement>, 'fill'> {
     size?: number;
 }
 
+/**
+ * Plus icon component
+ *
+ * @param color - Icon color (default: blue)
+ * @param size - Icon size in pixels (default: 24)
+ * @param props - Additional SVG attributes
+ * @returns Plus icon element
+ */
 export function PlusIcon({ color = colors.blue, size = 24, ...props }: PlusIconProps) {
     const { css } = useFela();
 

@@ -7,6 +7,12 @@ export interface MainProps {
     children: ReactNode;
 }
 
+/**
+ * Main content container component
+ *
+ * @param children - Main content to display
+ * @returns Main element
+ */
 export function Main({ children }: MainProps) {
     const { css } = useFela();
 

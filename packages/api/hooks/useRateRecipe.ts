@@ -5,6 +5,11 @@ import { ApiMutationKey, ApiQueryKey } from '../constants';
 import { useApiConfig } from '../context/ApiConfigContext';
 import { addRatingResponseSchema, type AddRatingRequest } from '../types';
 
+/**
+ * Hook to rate a recipe
+ *
+ * @returns React Query mutation object for adding a rating to a recipe
+ */
 export function useRateRecipe() {
     const queryClient = useQueryClient();
     const { apiBaseUrl } = useApiConfig();

@@ -14,6 +14,16 @@ export interface RecipeListProps {
     convertScoreToStars: (score: number) => number;
 }
 
+/**
+ * Recipe list component that displays a list of recipe items
+ *
+ * @param recipes - List of recipes to display
+ * @param getRecipeHref - Function to generate href for each recipe
+ * @param translate - Translation function for i18n
+ * @param getRecipeImage - Function to get image URL for each recipe
+ * @param convertScoreToStars - Function to convert recipe score to star count
+ * @returns Recipe list element
+ */
 export function RecipeList({
     recipes,
     getRecipeHref,

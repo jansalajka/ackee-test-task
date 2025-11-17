@@ -17,6 +17,14 @@ export interface RecipeListPageTemplateProps {
 /**
  * Template for recipe list page
  * Accepts recipes as props instead of fetching them
+ *
+ * @param header - Header component to display
+ * @param recipes - List of recipes to display
+ * @param getRecipeHref - Function to generate href for each recipe
+ * @param translate - Translation function for i18n
+ * @param getRecipeImage - Function to get image URL for each recipe
+ * @param convertScoreToStars - Function to convert recipe score to star count
+ * @returns Recipe list page template
  */
 export function RecipeListPageTemplate({
     header,

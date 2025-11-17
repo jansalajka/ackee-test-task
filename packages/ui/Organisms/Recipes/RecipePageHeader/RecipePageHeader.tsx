@@ -9,6 +9,13 @@ export interface RecipePageHeaderProps {
     newRecipeHref: string;
 }
 
+/**
+ * Header component for recipe pages with home and new recipe links
+ *
+ * @param homeHref - URL for the home link (left arrow icon)
+ * @param newRecipeHref - URL for the new recipe link (plus icon)
+ * @returns Recipe page header element
+ */
 export function RecipePageHeader({ homeHref, newRecipeHref }: RecipePageHeaderProps) {
     return (
         <Header

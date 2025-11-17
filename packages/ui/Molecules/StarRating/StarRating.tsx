@@ -10,6 +10,14 @@ export interface StarRatingProps {
     starColor: string;
 }
 
+/**
+ * Star rating component that displays filled and empty stars
+ *
+ * @param stars - Number of filled stars to display (clamped between 0 and totalStars)
+ * @param totalStars - Total number of stars to display (default: 5)
+ * @param starColor - Color for the stars
+ * @returns Star rating element
+ */
 export function StarRating({ stars, totalStars = 5, starColor }: StarRatingProps) {
     const { css } = useFela();
 

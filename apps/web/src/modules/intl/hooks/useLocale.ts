@@ -4,8 +4,10 @@ import { useRouter } from 'next/router';
 import { defaultLocale, type Locale, type Locales } from '@workspace/localization';
 
 /**
- * Parse locale that can be in `en-US` or `en` format
- * and return the first part the lang part, not country part.
+ * Hook to parse and get locale information
+ * Parses locale that can be in `en-US` or `en` format and returns both language and region parts
+ *
+ * @returns Object with lang and region properties
  */
 export function useLocale() {
     const { locale, locales = [] } = useRouter();

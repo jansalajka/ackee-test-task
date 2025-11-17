@@ -8,6 +8,9 @@ import { recipeListSchema, type GetRecipesParams } from '../types';
 
 /**
  * Hook to fetch all recipes
+ *
+ * @param params - Optional query parameters for pagination (limit, offset)
+ * @returns React Query object with recipes list data
  */
 export function useRecipes(params?: GetRecipesParams) {
     const { apiBaseUrl } = useApiConfig();

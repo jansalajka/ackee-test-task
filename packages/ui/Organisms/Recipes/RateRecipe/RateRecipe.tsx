@@ -28,6 +28,14 @@ export interface RateRecipeDependencies {
     };
 }
 
+/**
+ * Recipe rating component that allows users to rate recipes with stars
+ *
+ * @param recipeId - ID of the recipe to rate
+ * @param translate - Translation function for i18n
+ * @param cookies - Cookie utility functions for storing ratings
+ * @returns Recipe rating element
+ */
 export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & RateRecipeDependencies) {
     const { css } = useFela();
     const [selectedRating, setSelectedRating] = useState<number | null>(() => {
@@ -130,6 +138,13 @@ export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & R
     );
 }
 
+/**
+ * Gets the stored rating for a recipe from cookies
+ *
+ * @param recipeId - ID of the recipe
+ * @param cookies - Cookie utility functions
+ * @returns Rating value (1-5) or null if not found/invalid
+ */
 function getRecipeRating(recipeId: string, cookies: RateRecipeDependencies['cookies']): number | null {
     const cookieValue = cookies.get(`${COOKIE_NAME_PREFIX}${recipeId}`);
 
@@ -142,6 +157,13 @@ function getRecipeRating(recipeId: string, cookies: RateRecipeDependencies['cook
     return result.success ? result.data : null;
 }
 
+/**
+ * Stores a rating for a recipe in cookies
+ *
+ * @param recipeId - ID of the recipe
+ * @param rating - Rating value (1-5)
+ * @param cookies - Cookie utility functions
+ */
 function setRecipeRating(recipeId: string, rating: number, cookies: RateRecipeDependencies['cookies']): void {
     cookies.set(`${COOKIE_NAME_PREFIX}${recipeId}`, rating.toString());
 }

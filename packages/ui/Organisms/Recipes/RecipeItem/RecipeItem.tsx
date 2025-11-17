@@ -23,6 +23,16 @@ export interface RecipeItemProps {
     convertScoreToStars: (score: number) => number;
 }
 
+/**
+ * Recipe item component that displays a single recipe in a list
+ *
+ * @param recipe - Recipe data to display
+ * @param href - Link URL for the recipe
+ * @param translate - Translation function for i18n
+ * @param getRecipeImage - Function to get image URL for the recipe
+ * @param convertScoreToStars - Function to convert recipe score to star count
+ * @returns Recipe item element with link
+ */
 export function RecipeItem({ recipe, href, translate, getRecipeImage, convertScoreToStars }: RecipeItemProps) {
     const { css } = useFela();
 

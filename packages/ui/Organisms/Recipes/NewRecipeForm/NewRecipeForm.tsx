@@ -46,6 +46,13 @@ export interface NewRecipeFormProps {
     onPendingChange?: (isPending: boolean) => void;
 }
 
+/**
+ * Form component for creating a new recipe
+ *
+ * @param dependencies - Required dependencies (translate, onSubmit, isPending, error)
+ * @param onPendingChange - Optional callback when pending state changes
+ * @returns Recipe form element
+ */
 export function NewRecipeForm({ dependencies, onPendingChange }: NewRecipeFormProps) {
     const { translate, onSubmit, isPending = false, error } = dependencies;
     const { css } = useFela();

@@ -11,6 +11,12 @@ import { unwrapPossibleZodEffects } from '../utils/unwrap';
 
 export type AcceptedZodType = ZodType<object, ZodObjectDef | ZodRecordDef | ZodUnionDef>;
 
+/**
+ * Hook that returns a function to translate form errors based on the schema
+ *
+ * @param schema - Zod schema that may contain nested effects (refine, transform, etc.)
+ * @returns Function that translates field errors using the schema structure
+ */
 export function useTranslateErrors<Schema extends NestedPossibleZodEffect<AcceptedZodType>>(schema: Schema) {
     const { formatMessage } = useIntl();
 

@@ -24,6 +24,17 @@ export interface HeaderProps {
     hoverColor?: HeaderHoverColorEnum;
 }
 
+/**
+ * Header component with optional blurred background and content section
+ *
+ * @param headline - Main headline text (hidden when content is provided)
+ * @param left - Optional left section content (buttons, links, etc.)
+ * @param right - Optional right section content (buttons, links, etc.)
+ * @param content - Optional content section below header buttons
+ * @param blurredBackgroundImage - Optional background image URL for blurred effect
+ * @param hoverColor - Color for hover effects on left/right sections (default: pink)
+ * @returns Header element
+ */
 export function Header({ headline, left, right, content, blurredBackgroundImage, hoverColor = HeaderHoverColorEnum.PINK }: HeaderProps) {
     const { css } = useFela();
     const hasContent = Boolean(content);
@@ -61,6 +72,13 @@ export function Header({ headline, left, right, content, blurredBackgroundImage,
     );
 }
 
+/**
+ * Gets the appropriate header styles based on content and background
+ *
+ * @param hasContent - Whether the header has a content section
+ * @param hasBlurredBackground - Whether the header has a blurred background image
+ * @returns Header style object
+ */
 function getHeaderStyles(hasContent: boolean, hasBlurredBackground: boolean) {
     if (hasContent) {
         return headerWithContentStyles;

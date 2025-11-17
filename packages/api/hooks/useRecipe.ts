@@ -4,6 +4,12 @@ import { ApiQueryKey } from '../constants';
 import { useApiConfig } from '../context/ApiConfigContext';
 import { recipeDetailSchema } from '../types';
 
+/**
+ * Hook to fetch a single recipe by ID
+ *
+ * @param recipeId - The ID of the recipe to fetch (undefined to disable query)
+ * @returns React Query object with recipe data
+ */
 export function useRecipe(recipeId: string | undefined) {
     const { apiBaseUrl } = useApiConfig();
 

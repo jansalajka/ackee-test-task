@@ -11,6 +11,14 @@ export interface ErrorPageProps {
     message: string;
 }
 
+/**
+ * Template for error page
+ *
+ * @param header - Header component to display
+ * @param title - Error title/heading
+ * @param message - Error message text
+ * @returns Error page template
+ */
 export function ErrorPageTemplate({ header, title, message }: ErrorPageProps) {
     const { css } = useFela();
 

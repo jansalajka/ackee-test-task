@@ -7,6 +7,8 @@ import { createRecipeResponseSchema, type CreateRecipeRequest } from '../types';
 
 /**
  * Hook to create a new recipe
+ *
+ * @returns React Query mutation object for creating a recipe
  */
 export function useCreateRecipe() {
     const queryClient = useQueryClient();

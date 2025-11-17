@@ -9,9 +9,11 @@ import { RendererProvider } from 'react-fela';
 let renderer: ReturnType<typeof createRenderer> | null = null;
 
 /**
- * Get or create Fela renderer
+ * Gets or creates Fela renderer instance
  * On server, creates new renderer per request
  * On client, reuses the same renderer
+ *
+ * @returns Fela renderer instance
  */
 function getRenderer() {
     if (typeof window === 'undefined') {
@@ -34,6 +36,10 @@ export interface FelaProviderProps {
 
 /**
  * Provides Fela renderer to child components
+ *
+ * @param children - Child components that can use Fela styles
+ * @param renderer - Optional Fela renderer instance (if not provided, uses getRenderer())
+ * @returns Fela provider component
  */
 export function FelaProvider({ children, renderer: providedRenderer }: FelaProviderProps) {
     const rendererToUse = providedRenderer || getRenderer();

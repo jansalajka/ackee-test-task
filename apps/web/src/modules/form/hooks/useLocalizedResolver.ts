@@ -12,7 +12,10 @@ export type LocalizedZodResolver = <TFieldValues extends FieldValues, TContext>(
 ) => Promise<ResolverResult<TFieldValues>>;
 
 /**
- * Extend the zodResolver with the ability to translate the error messages.
+ * Hook that extends zodResolver with the ability to translate error messages
+ *
+ * @param schema - Zod schema that may contain nested effects (refine, transform, etc.)
+ * @returns Resolver function that translates errors based on the schema structure
  */
 export function useLocalizedResolver<Schema extends NestedPossibleZodEffect<AcceptedZodType>>(
     schema: Schema,

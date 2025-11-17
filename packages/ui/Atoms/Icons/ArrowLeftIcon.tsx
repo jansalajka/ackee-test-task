@@ -13,6 +13,13 @@ const iconStyles = {
     height: '24px',
 };
 
+/**
+ * Arrow left icon component
+ *
+ * @param color - Icon color (default: blue)
+ * @param props - Additional SVG attributes
+ * @returns Arrow left icon element
+ */
 export function ArrowLeftIcon({ color = colors.blue, ...props }: ArrowLeftIconProps) {
     const { css } = useFela();
 

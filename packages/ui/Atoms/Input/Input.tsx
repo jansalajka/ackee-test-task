@@ -19,6 +19,21 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
     size?: InputSizeEnum;
 }
 
+/**
+ * Input component with floating label and error message support
+ *
+ * @param label - Optional label that floats when focused or has value (if not provided, placeholder is used)
+ * @param error - Optional error message to display below the input
+ * @param onFocus - Optional focus event handler
+ * @param onBlur - Optional blur event handler
+ * @param value - Controlled input value
+ * @param onChange - Change event handler
+ * @param placeholder - Placeholder text (only used when label is not provided)
+ * @param size - Input size variant
+ * @param defaultValue - Uncontrolled input default value
+ * @param props - Additional HTML input attributes
+ * @returns Input element with label and optional error message
+ */
 export function Input({ label, error, onFocus, onBlur, value, onChange, placeholder, size, defaultValue, ...props }: InputProps) {
     const { css } = useFela();
     const [isFocused, setIsFocused] = useState<boolean>(false);

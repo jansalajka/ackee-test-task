@@ -8,6 +8,13 @@ export interface LoadingProps {
     height?: number;
 }
 
+/**
+ * Loading spinner component
+ *
+ * @param width - Image width in pixels (default: 48)
+ * @param height - Image height in pixels (default: 48)
+ * @returns Loading spinner element
+ */
 export function Loading({ width = 48, height = 48 }: LoadingProps) {
     const { css } = useFela();
 

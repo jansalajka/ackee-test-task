@@ -18,6 +18,14 @@ type Variables<S extends Value> = SplitString<S, '/'>[number] extends `${infer V
 
 export type GeneratePathParams<S extends Value> = Variables<S> extends Value ? { [key in Variables<S>]: Value } : never;
 
+/**
+ * Generates a path by replacing route parameters with actual values
+ *
+ * @param route - Route pattern with parameters in brackets (e.g., '/recipes/[id]')
+ * @param params - Object with parameter values matching the route parameters
+ * @returns Generated path with parameters replaced and URL-encoded
+ * @throws Error if a required parameter is missing
+ */
 export function generatePath<T extends AuthRoute | Route, P extends GeneratePathParams<T>>(route: T, params: P) {
     const regex = /[[](?<variable>\w+)[\]]/g;
 

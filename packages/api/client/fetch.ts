@@ -7,6 +7,7 @@ const DEFAULT_API_BASE_URL = 'https://my-json-server.typicode.com/AckeeCZ/web-ta
 
 /**
  * Custom error class for API errors
+ * Extends the base Error class with HTTP status and response data
  */
 export class ApiError extends Error {
     constructor(
@@ -22,6 +23,12 @@ export class ApiError extends Error {
 /**
  * Fetch wrapper with Zod validation
  * Overload for requests with schema validation
+ *
+ * @param endpoint - API endpoint path (e.g., '/recipes')
+ * @param options - Fetch request options (method, body, headers, etc.)
+ * @param schema - Zod schema to validate the response
+ * @param apiBaseUrl - Optional API base URL (uses default if not provided)
+ * @returns Promise resolving to the validated response data
  */
 export async function fetchApi<T extends z.ZodType>(
     endpoint: string,
@@ -32,6 +39,12 @@ export async function fetchApi<T extends z.ZodType>(
 
 /**
  * Fetch wrapper without schema validation (for DELETE, etc.)
+ *
+ * @param endpoint - API endpoint path (e.g., '/recipes/123')
+ * @param options - Optional fetch request options (method, headers, etc.)
+ * @param schema - Must be undefined or never for this overload
+ * @param apiBaseUrl - Optional API base URL (uses default if not provided)
+ * @returns Promise resolving to void
  */
 export async function fetchApi(
     endpoint: string,
@@ -40,6 +53,16 @@ export async function fetchApi(
     apiBaseUrl?: string,
 ): Promise<void>;
 
+/**
+ * Fetch wrapper with optional Zod validation
+ *
+ * @param endpoint - API endpoint path (e.g., '/recipes' or '/recipes/123')
+ * @param options - Optional fetch request options (method, body, headers, etc.)
+ * @param schema - Optional Zod schema to validate the response
+ * @param apiBaseUrl - Optional API base URL (uses default if not provided)
+ * @returns Promise resolving to validated response data or void
+ * @throws {ApiError} When the API request fails
+ */
 export async function fetchApi<T extends z.ZodType>(
     endpoint: string,
     options?: RequestInit,

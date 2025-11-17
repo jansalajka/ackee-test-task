@@ -8,6 +8,13 @@ export interface RecipeHeaderContentProps {
     title: string;
 }
 
+/**
+ * Header content component for recipe detail pages with blurred background image
+ *
+ * @param imageUrl - URL for the recipe background image
+ * @param title - Recipe title to display
+ * @returns Recipe header content element with blurred background
+ */
 export function RecipeHeaderContent({ imageUrl, title }: RecipeHeaderContentProps) {
     const { css } = useFela();
 

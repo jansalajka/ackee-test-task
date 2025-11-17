@@ -10,6 +10,13 @@ interface TranslateUtils {
     formatMessage: ReturnType<typeof useIntl>['formatMessage'];
 }
 
+/**
+ * Translates error messages if they are message keys
+ *
+ * @param value - Error object that may contain a message key
+ * @param formatMessage - Function to format internationalized messages
+ * @returns Translated error object if message is a key, otherwise original value
+ */
 function possiblyTranslate(value: object, { formatMessage }: TranslateUtils) {
     if (value && 'message' in value && typeof value.message === 'string' && isMessageKey(value.message)) {
         return {
@@ -21,6 +28,14 @@ function possiblyTranslate(value: object, { formatMessage }: TranslateUtils) {
     return value;
 }
 
+/**
+ * Translates errors from nested schema structures (objects, records, arrays)
+ *
+ * @param def - Zod schema definition
+ * @param errors - Form field errors to translate
+ * @param utils - Translation utilities
+ * @returns Translated error object
+ */
 function translateInnerSchemaErrors(def: ZodTypeAny, errors: any, utils: TranslateUtils): object {
     const unwrappedDef = unwrapPossibleZodEffectsDef(def);
 
@@ -37,6 +52,14 @@ function translateInnerSchemaErrors(def: ZodTypeAny, errors: any, utils: Transla
     return errors;
 }
 
+/**
+ * Translates form errors recursively based on schema structure
+ *
+ * @param errors - Form field errors to translate
+ * @param utils - Translation utilities
+ * @param getInnerDefOrNull - Function to get inner schema definition for a field key
+ * @returns Translated error object
+ */
 function translateErrors(
     errors: FieldErrors,
     utils: TranslateUtils,
@@ -58,6 +81,14 @@ function translateErrors(
     return Object.fromEntries(entries);
 }
 
+/**
+ * Translates errors for array field types
+ *
+ * @param def - Zod array definition
+ * @param errors - Form field errors to translate
+ * @param utils - Translation utilities
+ * @returns Translated error object for array fields
+ */
 function translateArrayErrors(def: ZodArrayDef, errors: FieldErrors, utils: TranslateUtils) {
     return translateErrors(errors, utils, key => {
         const isKey = !isNaN(Number(key));
@@ -70,6 +101,14 @@ function translateArrayErrors(def: ZodArrayDef, errors: FieldErrors, utils: Tran
     });
 }
 
+/**
+ * Translates errors for record field types
+ *
+ * @param def - Zod record definition
+ * @param errors - Form field errors to translate
+ * @param utils - Translation utilities
+ * @returns Translated error object for record fields
+ */
 export function translateRecordErrors(def: ZodRecordDef, errors: FieldErrors, utils: TranslateUtils) {
     return translateErrors(errors, utils, key => {
         const isKey = def.keyType.safeParse(key).success;
@@ -82,6 +121,14 @@ export function translateRecordErrors(def: ZodRecordDef, errors: FieldErrors, ut
     });
 }
 
+/**
+ * Translates errors for object field types
+ *
+ * @param def - Zod object definition
+ * @param errors - Form field errors to translate
+ * @param utils - Translation utilities
+ * @returns Translated error object for object fields
+ */
 export function translateObjectErrors(def: ZodObjectDef, errors: FieldErrors, utils: TranslateUtils) {
     const shape = def.shape();
 
@@ -90,6 +137,15 @@ export function translateObjectErrors(def: ZodObjectDef, errors: FieldErrors, ut
     });
 }
 
+/**
+ * Translates form errors based on the schema type definition
+ *
+ * @param def - Zod type definition (object, record, or union)
+ * @param errors - Form field errors to translate
+ * @param formatMessage - Function to format internationalized messages
+ * @returns Translated error object
+ * @throws Error if an unsupported definition type is provided
+ */
 export function translateErrorsOfDef(def: ZodTypeDef, errors: FieldErrors, { formatMessage }: TranslateUtils) {
     if (isObjectDef(def)) {
         return translateObjectErrors(def, errors, { formatMessage });

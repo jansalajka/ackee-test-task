@@ -9,6 +9,15 @@ export interface StarIconProps extends Omit<SVGProps<SVGSVGElement>, 'fill'> {
     size?: number;
 }
 
+/**
+ * Star icon component (filled or outlined)
+ *
+ * @param color - Icon color (default: pink)
+ * @param filled - Whether to display filled or outlined star (default: false)
+ * @param size - Icon size in pixels (default: 16)
+ * @param props - Additional SVG attributes
+ * @returns Star icon element
+ */
 export function StarIcon({ color = colors.pink, filled = false, size = 16, ...props }: StarIconProps) {
     const { css } = useFela();
 

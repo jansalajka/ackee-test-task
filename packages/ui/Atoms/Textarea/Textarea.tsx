@@ -18,6 +18,20 @@ export interface TextareaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaE
     size?: InputSizeEnum;
 }
 
+/**
+ * Textarea component with floating label and error message support
+ *
+ * @param label - Label that floats when focused or has value
+ * @param error - Optional error message to display below the textarea
+ * @param onFocus - Optional focus event handler
+ * @param onBlur - Optional blur event handler
+ * @param value - Controlled textarea value
+ * @param onChange - Change event handler
+ * @param size - Textarea size variant
+ * @param defaultValue - Uncontrolled textarea default value
+ * @param props - Additional HTML textarea attributes
+ * @returns Textarea element with label and optional error message
+ */
 export function Textarea({
     label,
     error,

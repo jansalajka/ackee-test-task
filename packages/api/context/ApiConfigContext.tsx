@@ -17,6 +17,12 @@ interface ApiConfigProviderProps {
     children: ReactNode;
 }
 
+/**
+ * Provider component for API configuration context
+ *
+ * @param apiBaseUrl - The API base URL to provide to child components
+ * @param children - Child components that can access the API configuration
+ */
 export function ApiConfigProvider({ apiBaseUrl, children }: ApiConfigProviderProps) {
     return <ApiConfigContext.Provider value={{ apiBaseUrl }}>{children}</ApiConfigContext.Provider>;
 }
