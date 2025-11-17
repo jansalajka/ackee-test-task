@@ -47,7 +47,7 @@
         "lint:fix": "yarn lint --fix",
         "types-check": "tsc --noEmit",
         "test": "vitest dev",
-        "test:ci": "vitest run"
+        "test:ci": "vitest run --passWithNoTests"
     },
     "prettier": "@tooling/prettier/config"
 }
