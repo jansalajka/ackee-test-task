@@ -19,6 +19,8 @@
         "audit": "yarn npm audit --severity moderate --environment production --all",
         "cy:open": "yarn workspace web cypress:open",
         "cy:run": "yarn workspace web cypress:run",
+        "storybook": "yarn workspace web storybook",
+        "storybook:build": "yarn workspace web build-storybook",
         "vitest": "yarn workspace web vitest",
         "pre-commit": "prettier-format --staged --log-level=log && yarn lint:fix && yarn types-check && yarn workspace web cypress:run"
     },
