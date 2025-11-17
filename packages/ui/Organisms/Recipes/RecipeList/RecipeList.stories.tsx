@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import type { RecipeList as RecipeListType } from '@workspace/api';
-import { realTranslate, mockGetRecipeImage, mockConvertScoreToStars } from '../../../../../apps/web/.storybook/utils';
+
+import { mockConvertScoreToStars, mockGetRecipeImage, realTranslate } from '../../../../../apps/web/.storybook/utils';
 import { RecipeList } from './RecipeList';
 
 const meta = {
@@ -55,14 +57,14 @@ const mockRecipes: RecipeListType = [
 export const Default: Story = {
     args: {
         recipes: mockRecipes,
-        getRecipeHref: (recipeId) => `/recipes/${recipeId}`,
+        getRecipeHref: recipeId => `/recipes/${recipeId}`,
     },
 };
 
 export const SingleItem: Story = {
     args: {
         recipes: [mockRecipes[0]],
-        getRecipeHref: (recipeId) => `/recipes/${recipeId}`,
+        getRecipeHref: recipeId => `/recipes/${recipeId}`,
     },
 };
 
@@ -89,7 +91,6 @@ export const ManyItems: Story = {
                 duration: 25,
             },
         ],
-        getRecipeHref: (recipeId) => `/recipes/${recipeId}`,
+        getRecipeHref: recipeId => `/recipes/${recipeId}`,
     },
 };
-

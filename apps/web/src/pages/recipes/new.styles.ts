@@ -15,5 +15,3 @@ export const backLinkStyles = {
         opacity: 0.8,
     },
 };
-
-

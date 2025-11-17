@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { useFela } from 'react-fela';
+
 import { colors } from '../../constants';
 import { typographyStyles } from '../../styles';
 
@@ -123,8 +124,8 @@ const TypographyShowcase = () => {
                 <div className={css(exampleStyles)}>
                     <div className={css(labelStyles)}>Intro Text - 18px / 400 / line-height: 1.6</div>
                     <p className={css(typographyStyles.introText)}>
-                        This is the intro text style used for recipe descriptions. It provides a larger, more readable format
-                        for important content that introduces the recipe to the user.
+                        This is the intro text style used for recipe descriptions. It provides a larger, more readable
+                        format for important content that introduces the recipe to the user.
                     </p>
                 </div>
 
@@ -190,7 +191,11 @@ const TypographyShowcase = () => {
 
                 <div className={css(exampleStyles)}>
                     <div className={css(labelStyles)}>Input Text - 16px / 400</div>
-                    <input type="text" placeholder="Recipe name" className={css([inputWrapperStyles, typographyStyles.inputText])} />
+                    <input
+                        type='text'
+                        placeholder='Recipe name'
+                        className={css([inputWrapperStyles, typographyStyles.inputText])}
+                    />
                 </div>
 
                 <div className={css(exampleStyles)}>
@@ -203,7 +208,9 @@ const TypographyShowcase = () => {
                 <div className={css(exampleStyles)}>
                     <div className={css(labelStyles)}>Input Label (Focused) - 14px / 400 / blue</div>
                     <div className={css(labelContainerStyles)}>
-                        <label className={css([labelFocusedStyles, typographyStyles.inputLabelFocused])}>Recipe Name</label>
+                        <label className={css([labelFocusedStyles, typographyStyles.inputLabelFocused])}>
+                            Recipe Name
+                        </label>
                     </div>
                 </div>
 

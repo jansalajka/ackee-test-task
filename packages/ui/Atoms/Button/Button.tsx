@@ -2,7 +2,6 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { useFela } from 'react-fela';
 
 import { ButtonVariantEnum } from '../../constants';
-
 import { buttonStyles, iconButtonStyles } from './Button.styles';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,4 +30,3 @@ export function Button({ children, variant = ButtonVariantEnum.DEFAULT, icon, ..
         </button>
     );
 }
-

@@ -41,4 +41,3 @@ export const csTranslations = {
     TRANS_RECIPE_DURATION: 'Doba přípravy: {duration} minut',
     TRANS_SUBMIT_RECIPE: 'Odeslat recept',
 } as const;
-

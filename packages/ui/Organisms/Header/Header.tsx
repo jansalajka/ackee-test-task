@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useFela } from 'react-fela';
+
 import { HeaderHoverColorEnum } from '../../constants';
 import {
     blurredBackgroundOverlayStyles,
@@ -35,7 +36,14 @@ export interface HeaderProps {
  * @param hoverColor - Color for hover effects on left/right sections (default: pink)
  * @returns Header element
  */
-export function Header({ headline, left, right, content, blurredBackgroundImage, hoverColor = HeaderHoverColorEnum.PINK }: HeaderProps): JSX.Element {
+export function Header({
+    headline,
+    left,
+    right,
+    content,
+    blurredBackgroundImage,
+    hoverColor = HeaderHoverColorEnum.PINK,
+}: HeaderProps): JSX.Element {
     const { css } = useFela();
     const hasContent = Boolean(content);
     const hasBlurredBackground = Boolean(blurredBackgroundImage);
@@ -79,7 +87,10 @@ export function Header({ headline, left, right, content, blurredBackgroundImage,
  * @param hasBlurredBackground - Whether the header has a blurred background image
  * @returns Header style object
  */
-function getHeaderStyles(hasContent: boolean, hasBlurredBackground: boolean): typeof headerWithContentStyles | typeof headerWithBlurredBackgroundStyles | typeof headerStyles {
+function getHeaderStyles(
+    hasContent: boolean,
+    hasBlurredBackground: boolean,
+): typeof headerWithContentStyles | typeof headerWithBlurredBackgroundStyles | typeof headerStyles {
     if (hasContent) {
         return headerWithContentStyles;
     }

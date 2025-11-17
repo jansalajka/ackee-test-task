@@ -9,7 +9,9 @@ type TranslationKey = keyof typeof csTranslations;
  *
  * @returns Object with translate function for translating keys with optional parameters
  */
-export function useTrans(): { translate: (key: TranslationKey | string, params?: Record<string, string | number>) => string } {
+export function useTrans(): {
+    translate: (key: TranslationKey | string, params?: Record<string, string | number>) => string;
+} {
     const translations = useMemo(() => {
         return csTranslations;
     }, []);
@@ -36,4 +38,3 @@ export function useTrans(): { translate: (key: TranslationKey | string, params?:
 
     return { translate };
 }
-

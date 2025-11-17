@@ -2,13 +2,19 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 
 import { useRecipes } from '@workspace/api';
+import {
+    colors,
+    ErrorPageTemplate,
+    Header,
+    LoadingPageTemplate,
+    PlusIcon,
+    RecipeListPageTemplate,
+} from '@workspace/ui';
 
-import { colors } from '@workspace/ui';
 import { routes } from '~constants';
 import { useTrans } from '~modules/trans';
 import { convertScoreToStars } from '~utils/convertScoreToStars';
 import { getRecipeImage } from '~utils/getRecipeImage';
-import { ErrorPageTemplate, Header, LoadingPageTemplate, PlusIcon, RecipeListPageTemplate } from '@workspace/ui';
 
 /**
  * Home page - displays list of recipes
@@ -58,7 +64,7 @@ const Home: NextPage = () => {
         <RecipeListPageTemplate
             header={header}
             recipes={recipes}
-            getRecipeHref={(id) => `/recipes/${id}`}
+            getRecipeHref={id => `/recipes/${id}`}
             translate={trans.translate.bind(trans) as (key: string, params?: Record<string, string | number>) => string}
             getRecipeImage={getRecipeImage}
             convertScoreToStars={convertScoreToStars}

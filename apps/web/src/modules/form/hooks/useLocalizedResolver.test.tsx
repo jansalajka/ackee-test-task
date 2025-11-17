@@ -7,9 +7,8 @@ import { z } from 'zod';
 import { useLocalizedResolver } from './useLocalizedResolver';
 
 const requiredErrorMessage = 'form.error.required' as any;
-const requiredString = () => z.string(
-    { required_error: requiredErrorMessage }).min(1, { message: requiredErrorMessage }
-);
+const requiredString = () =>
+    z.string({ required_error: requiredErrorMessage }).min(1, { message: requiredErrorMessage });
 
 const createWrapper = (locale: string = 'en', messages: Record<string, string> = {}) => {
     return ({ children }: { children: React.ReactNode }) => (

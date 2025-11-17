@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
+import { ArrowLeftIcon, PlusIcon } from '../../../Atoms';
 import { colors, HeaderHoverColorEnum } from '../../../constants';
-import { ArrowLeftIcon, PlusIcon } from '../../../Atoms/Icons';
 import { Header } from '../../Header';
 
 export interface RecipePageHeaderProps {
@@ -19,7 +19,7 @@ export interface RecipePageHeaderProps {
 export function RecipePageHeader({ homeHref, newRecipeHref }: RecipePageHeaderProps): JSX.Element {
     return (
         <Header
-            headline=""
+            headline=''
             left={
                 <Link href={homeHref}>
                     <ArrowLeftIcon color={colors.blue} />
@@ -34,4 +34,3 @@ export function RecipePageHeader({ homeHref, newRecipeHref }: RecipePageHeaderPr
         />
     );
 }
-

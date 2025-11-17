@@ -4,4 +4,3 @@ export const containerStyles = {
     alignItems: 'center',
     padding: '32px',
 };
-

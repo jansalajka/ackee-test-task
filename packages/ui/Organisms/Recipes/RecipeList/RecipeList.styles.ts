@@ -19,4 +19,3 @@ export const listStyles = {
 export const listItemStyles = {
     width: '100%',
 };
-

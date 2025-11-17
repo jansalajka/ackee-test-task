@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import type { RecipeListItem } from '@workspace/api';
-import { realTranslate, mockGetRecipeImage, mockConvertScoreToStars } from '../../../../../apps/web/.storybook/utils';
+
+import { mockConvertScoreToStars, mockGetRecipeImage, realTranslate } from '../../../../../apps/web/.storybook/utils';
 import { RecipeItem } from './RecipeItem';
 
 const meta = {
@@ -20,7 +22,7 @@ const meta = {
         (Story, context) => {
             const { href, recipe, translate, getRecipeImage, convertScoreToStars, ...restArgs } = context.args;
             // Ensure href is always a valid string - set it last to override any value from restArgs
-            const finalHref = (typeof href === 'string' && href.trim() !== '') ? href : '/recipes/1';
+            const finalHref = typeof href === 'string' && href.trim() !== '' ? href : '/recipes/1';
 
             return (
                 <Story
@@ -83,4 +85,3 @@ export const LongName: Story = {
         href: '/recipes/4',
     },
 };
-

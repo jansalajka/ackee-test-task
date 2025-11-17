@@ -15,4 +15,3 @@ export const INPUT_SIZE_MAX_WIDTHS = {
     [InputSizeEnum.MEDIUM]: '50%',
     [InputSizeEnum.LARGE]: '100%',
 } as const;
-

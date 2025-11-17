@@ -17,4 +17,3 @@ export function desktop(styles: Record<string, unknown>): Record<string, unknown
         [`@media (min-width: ${breakpoints.desktop}px)`]: styles,
     };
 }
-

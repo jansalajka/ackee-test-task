@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { ButtonVariantEnum } from '../../constants';
-import { colors } from '../../constants';
+
+import { ButtonVariantEnum, colors } from '../../constants';
 import { PlusIcon } from '../Icons';
 import { Button } from './Button';
 
@@ -53,4 +53,3 @@ export const Disabled: Story = {
         disabled: true,
     },
 };
-

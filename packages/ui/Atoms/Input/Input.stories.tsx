@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import { InputSizeEnum } from '../../constants';
 import { Input } from './Input';
 
@@ -85,4 +86,3 @@ export const Large: Story = {
         size: InputSizeEnum.LARGE,
     },
 };
-

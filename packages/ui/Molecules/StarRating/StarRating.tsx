@@ -1,7 +1,6 @@
 import { useFela } from 'react-fela';
 
-import { StarIcon } from '../../Atoms/Icons';
-
+import { StarIcon } from '../../Atoms';
 import { ratingStyles } from './StarRating.styles';
 
 export interface StarRatingProps {
@@ -31,4 +30,3 @@ export function StarRating({ stars, totalStars = 5, starColor }: StarRatingProps
         </div>
     );
 }
-

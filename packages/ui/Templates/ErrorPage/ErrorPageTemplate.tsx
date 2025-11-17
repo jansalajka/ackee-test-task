@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { useFela } from 'react-fela';
 
-import { Main } from '../../Organisms/Main';
+import { Main } from '../../Organisms';
 import { typographyStyles } from '../../styles';
 import { errorContainerStyles, errorTitleStyles } from './ErrorPageTemplate.styles';
 
@@ -34,4 +34,3 @@ export function ErrorPageTemplate({ header, title, message }: ErrorPageProps): J
         </>
     );
 }
-

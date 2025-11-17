@@ -122,5 +122,3 @@ export const typographyStyles = {
         margin: 0,
     },
 };
-
-

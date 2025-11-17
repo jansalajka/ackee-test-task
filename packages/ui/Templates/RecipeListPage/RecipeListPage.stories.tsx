@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 
 import type { RecipeList as RecipeListType } from '@workspace/api';
 
-import { colors } from '../../constants';
+import { mockConvertScoreToStars, mockGetRecipeImage, realTranslate } from '../../../../apps/web/.storybook/utils';
 import { PlusIcon } from '../../Atoms';
+import { colors } from '../../constants';
 import { Header } from '../../Organisms';
-import { realTranslate, mockGetRecipeImage, mockConvertScoreToStars } from '../../../../apps/web/.storybook/utils';
 import { RecipeListPageTemplate } from './RecipeListPage';
 
 const meta = {
@@ -48,12 +48,7 @@ const mockRecipes: RecipeListType = [
     },
 ];
 
-const defaultHeader = (
-    <Header
-        headline={realTranslate('TRANS_RECIPES')}
-        right={<PlusIcon color={colors.blue} />}
-    />
-);
+const defaultHeader = <Header headline={realTranslate('TRANS_RECIPES')} right={<PlusIcon color={colors.blue} />} />;
 
 export const Default: Story = {
     args: {
@@ -95,4 +90,3 @@ export const ManyRecipes: Story = {
         ],
     },
 };
-

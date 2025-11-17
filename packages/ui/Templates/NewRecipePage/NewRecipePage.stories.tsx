@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import { colors } from '../../constants';
-import { ArrowLeftIcon, PlusIcon } from '../../Atoms';
-import { Button } from '../../Atoms';
-import { Header, NewRecipeForm } from '../../Organisms';
-import { ButtonVariantEnum } from '../../../../apps/web/src/constants/buttonVariants';
 import { realTranslate } from '../../../../apps/web/.storybook/utils';
+import { ButtonVariantEnum } from '../../../../apps/web/src/constants/buttonVariants';
+import { ArrowLeftIcon, Button, PlusIcon } from '../../Atoms';
+import { colors } from '../../constants';
+import { Header, NewRecipeForm } from '../../Organisms';
 import { NewRecipePageTemplate } from './NewRecipePage';
 
 const meta = {
@@ -28,8 +27,8 @@ function createDefaultHeader() {
             left={<ArrowLeftIcon color={colors.blue} />}
             right={
                 <Button
-                    type="submit"
-                    form="recipe-form"
+                    type='submit'
+                    form='recipe-form'
                     variant={ButtonVariantEnum.ICON}
                     icon={<PlusIcon color={colors.blue} />}
                     aria-label={realTranslate('TRANS_SUBMIT_RECIPE')}
@@ -92,4 +91,3 @@ export const Pending: Story = {
         />
     ),
 };
-

@@ -1,2 +1,1 @@
 export { RecipePageHeader } from './RecipePageHeader';
-

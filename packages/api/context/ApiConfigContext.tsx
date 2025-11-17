@@ -42,4 +42,3 @@ export function useApiConfig(): ApiConfigContextValue {
 
     return context;
 }
-

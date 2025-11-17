@@ -2,8 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { RecipeList as RecipeListType } from '@workspace/api';
 
-import { Main } from '../../Organisms';
-import { RecipeList } from '../../Organisms';
+import { Main, RecipeList } from '../../Organisms';
 
 export interface RecipeListPageTemplateProps {
     header: ReactNode;
@@ -49,4 +48,3 @@ export function RecipeListPageTemplate({
         </>
     );
 }
-

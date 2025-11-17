@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import { Loading } from './Loading';
 
 const meta = {
@@ -42,4 +43,3 @@ export const Large: Story = {
         height: 64,
     },
 };
-

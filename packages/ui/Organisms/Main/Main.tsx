@@ -18,4 +18,3 @@ export function Main({ children }: MainProps): JSX.Element {
 
     return <main className={css(mainStyles)}>{children}</main>;
 }
-

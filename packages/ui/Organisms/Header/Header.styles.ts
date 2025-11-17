@@ -143,4 +143,3 @@ export const contentContainerStyles = {
     position: 'relative' as const,
     zIndex: 1,
 };
-

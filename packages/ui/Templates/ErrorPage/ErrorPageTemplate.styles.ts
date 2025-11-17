@@ -18,5 +18,3 @@ export const errorTitleStyles = {
     ...typographyStyles.errorTitle,
     margin: '0 0 16px 0',
 };
-
-

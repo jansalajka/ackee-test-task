@@ -34,4 +34,3 @@ export const starButtonDisabledStyles = {
     ...starButtonStyles,
     cursor: 'not-allowed',
 };
-

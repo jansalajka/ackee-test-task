@@ -3,7 +3,6 @@ import { useFela } from 'react-fela';
 import type { RecipeList } from '@workspace/api';
 
 import { RecipeItem } from '../RecipeItem';
-
 import { listItemStyles, listStyles } from './RecipeList.styles';
 
 export interface RecipeListProps {
@@ -49,4 +48,3 @@ export function RecipeList({
         </ul>
     );
 }
-

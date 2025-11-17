@@ -27,20 +27,19 @@ export function ClockIcon({ color = colors.gray.dark, size = 16, ...props }: Clo
 
     return (
         <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 24 24"
+            version='1.1'
+            xmlns='http://www.w3.org/2000/svg'
+            xmlnsXlink='http://www.w3.org/1999/xlink'
+            viewBox='0 0 24 24'
             className={css(iconStyles)}
-            aria-hidden="true"
+            aria-hidden='true'
             {...props}
         >
             <g>
-                <circle cx="12" cy="12" r="10" fill="none" stroke={color} strokeWidth="2" />
-                <line x1="12" y1="12" x2="12" y2="7" stroke={color} strokeWidth="2" strokeLinecap="round" />
-                <line x1="12" y1="12" x2="16" y2="12" stroke={color} strokeWidth="2" strokeLinecap="round" />
+                <circle cx='12' cy='12' r='10' fill='none' stroke={color} strokeWidth='2' />
+                <line x1='12' y1='12' x2='12' y2='7' stroke={color} strokeWidth='2' strokeLinecap='round' />
+                <line x1='12' y1='12' x2='16' y2='12' stroke={color} strokeWidth='2' strokeLinecap='round' />
             </g>
         </svg>
     );
 }
-

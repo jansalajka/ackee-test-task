@@ -41,4 +41,3 @@ export const colorUtils = {
     overlay: hexToRgba(colors.white, 0.8),
     hoverBackground: colors.gray.lighter,
 } as const;
-

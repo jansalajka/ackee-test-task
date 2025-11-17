@@ -1,9 +1,10 @@
 import { beforeEach, describe, expect, it } from 'vitest';
+
 import { cookies } from './cookies';
 
 describe('cookies', () => {
     beforeEach(() => {
-        document.cookie.split(';').forEach((cookie) => {
+        document.cookie.split(';').forEach(cookie => {
             const name = cookie.split('=')[0].trim();
 
             document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
@@ -93,5 +94,3 @@ describe('cookies', () => {
         });
     });
 });
-
-

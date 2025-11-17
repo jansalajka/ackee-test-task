@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import { colors } from '../../constants';
 import { StarIcon } from './StarIcon';
 
@@ -65,4 +66,3 @@ export const CustomColor: Story = {
         size: 32,
     },
 };
-

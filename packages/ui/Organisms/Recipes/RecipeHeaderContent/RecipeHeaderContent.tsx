@@ -78,7 +78,7 @@ export function RecipeHeaderContent({ imageUrl, title }: RecipeHeaderContentProp
 
     return (
         <div className={css(headerSectionStyles)}>
-            <div className={css(getBlurredBackgroundStyles(imageUrl))} aria-hidden="true" />
+            <div className={css(getBlurredBackgroundStyles(imageUrl))} aria-hidden='true' />
             <div className={css(getHeaderContentContainerStyles(imageUrl))}>
                 <div className={css(headerBottomStyles)}>
                     <h1 className={css(recipeTitleStyles)}>{title}</h1>
@@ -87,4 +87,3 @@ export function RecipeHeaderContent({ imageUrl, title }: RecipeHeaderContentProp
         </div>
     );
 }
-

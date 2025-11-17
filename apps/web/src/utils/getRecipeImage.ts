@@ -20,4 +20,3 @@ export function getRecipeImage(seed: string): string {
 
     return `https://picsum.photos/seed/food-${imageId}/800/600`;
 }
-

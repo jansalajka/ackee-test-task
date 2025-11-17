@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import { Main } from './Main';
 
 const meta = {
@@ -41,4 +42,3 @@ export const WithMultipleChildren: Story = {
         ),
     },
 };
-

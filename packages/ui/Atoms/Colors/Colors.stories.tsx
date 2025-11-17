@@ -75,42 +75,42 @@ const AllColorsRender = () => {
         <div>
             <h2 style={{ marginBottom: '24px' }}>Primary Colors</h2>
             <div className={css(colorSwatchStyles)}>
-                <ColorSwatch name="Blue" value={colors.blue} />
-                <ColorSwatch name="Pink" value={colors.pink} />
-                <ColorSwatch name="White" value={colors.white} />
+                <ColorSwatch name='Blue' value={colors.blue} />
+                <ColorSwatch name='Pink' value={colors.pink} />
+                <ColorSwatch name='White' value={colors.white} />
             </div>
 
             <h2 style={{ marginBottom: '24px', marginTop: '32px' }}>Purple Variants</h2>
             <div className={css(colorSwatchStyles)}>
-                <ColorSwatch name="Purple Light" value={colors.purple.light} />
-                <ColorSwatch name="Purple Dark" value={colors.purple.dark} />
+                <ColorSwatch name='Purple Light' value={colors.purple.light} />
+                <ColorSwatch name='Purple Dark' value={colors.purple.dark} />
             </div>
 
             <h2 style={{ marginBottom: '24px', marginTop: '32px' }}>Gray Scale</h2>
             <div className={css(colorSwatchStyles)}>
-                <ColorSwatch name="Gray Lighter" value={colors.gray.lighter} />
-                <ColorSwatch name="Gray Light" value={colors.gray.light} />
-                <ColorSwatch name="Gray Medium" value={colors.gray.medium} />
-                <ColorSwatch name="Gray Dark" value={colors.gray.dark} />
+                <ColorSwatch name='Gray Lighter' value={colors.gray.lighter} />
+                <ColorSwatch name='Gray Light' value={colors.gray.light} />
+                <ColorSwatch name='Gray Medium' value={colors.gray.medium} />
+                <ColorSwatch name='Gray Dark' value={colors.gray.dark} />
             </div>
 
             <h2 style={{ marginBottom: '24px', marginTop: '32px' }}>Background</h2>
             <div className={css(colorSwatchStyles)}>
-                <ColorSwatch name="Background" value={colors.background} />
+                <ColorSwatch name='Background' value={colors.background} />
             </div>
 
             <h2 style={{ marginBottom: '24px', marginTop: '32px' }}>Color Utilities</h2>
             <div className={css(colorSwatchStyles)}>
-                <ColorSwatch name="Shadow" value={colorUtils.shadow} />
-                <ColorSwatch name="Overlay" value={colorUtils.overlay} />
-                <ColorSwatch name="Hover Background" value={colorUtils.hoverBackground} />
+                <ColorSwatch name='Shadow' value={colorUtils.shadow} />
+                <ColorSwatch name='Overlay' value={colorUtils.overlay} />
+                <ColorSwatch name='Hover Background' value={colorUtils.hoverBackground} />
             </div>
 
             <h2 style={{ marginBottom: '24px', marginTop: '32px' }}>RGBA Examples</h2>
             <div className={css(colorSwatchStyles)}>
-                <ColorSwatch name="Blue 50% Opacity" value={hexToRgba(colors.blue, 0.5)} />
-                <ColorSwatch name="Pink 30% Opacity" value={hexToRgba(colors.pink, 0.3)} />
-                <ColorSwatch name="Gray Dark 20% Opacity" value={hexToRgba(colors.gray.dark, 0.2)} />
+                <ColorSwatch name='Blue 50% Opacity' value={hexToRgba(colors.blue, 0.5)} />
+                <ColorSwatch name='Pink 30% Opacity' value={hexToRgba(colors.pink, 0.3)} />
+                <ColorSwatch name='Gray Dark 20% Opacity' value={hexToRgba(colors.gray.dark, 0.2)} />
             </div>
         </div>
     );
@@ -119,4 +119,3 @@ const AllColorsRender = () => {
 export const AllColors: Story = {
     render: AllColorsRender,
 };
-

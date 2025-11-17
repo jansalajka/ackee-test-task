@@ -1,7 +1,9 @@
-import { useRateRecipe } from '@workspace/api';
 import { useState } from 'react';
 import { useFela } from 'react-fela';
 import { z } from 'zod';
+
+import { useRateRecipe } from '@workspace/api';
+
 import { StarIcon } from '../../../Atoms';
 import { colors } from '../../../constants';
 import {
@@ -36,7 +38,11 @@ export interface RateRecipeDependencies {
  * @param cookies - Cookie utility functions for storing ratings
  * @returns Recipe rating element
  */
-export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & RateRecipeDependencies): JSX.Element | null {
+export function RateRecipe({
+    recipeId,
+    translate,
+    cookies,
+}: RateRecipeProps & RateRecipeDependencies): JSX.Element | null {
     const { css } = useFela();
     const [selectedRating, setSelectedRating] = useState<number | null>(() => {
         if (!cookies) {
@@ -88,12 +94,7 @@ export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & R
                 <h3 className={css(ratingSectionTitleStyles)}>{translate('TRANS_RATE_RECIPE')}</h3>
                 <div className={css(ratingStarsContainerStyles)}>
                     {Array.from({ length: 5 }, (_, index) => (
-                        <StarIcon
-                            key={index}
-                            filled={index < selectedRating}
-                            color={colors.white}
-                            size={48}
-                        />
+                        <StarIcon key={index} filled={index < selectedRating} color={colors.white} size={48} />
                     ))}
                 </div>
             </div>
@@ -112,7 +113,7 @@ export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & R
                     return (
                         <button
                             key={index}
-                            type="button"
+                            type='button'
                             onClick={() => handleStarClick(starRating)}
                             onMouseEnter={() => handleStarHover(starRating)}
                             onMouseLeave={handleStarLeave}
@@ -120,19 +121,13 @@ export function RateRecipe({ recipeId, translate, cookies }: RateRecipeProps & R
                             className={css(isClickable ? starButtonStyles : starButtonDisabledStyles)}
                             aria-label={translate('TRANS_RATE_STARS', { stars: starRating })}
                         >
-                            <StarIcon
-                                filled={isFilled}
-                                color={colors.white}
-                                size={48}
-                            />
+                            <StarIcon filled={isFilled} color={colors.white} size={48} />
                         </button>
                     );
                 })}
             </div>
             {addRating.isError && (
-                <div className={css(errorMessageStyles)}>
-                    {translate('TRANS_ERROR_RATING_RECIPE')}
-                </div>
+                <div className={css(errorMessageStyles)}>{translate('TRANS_ERROR_RATING_RECIPE')}</div>
             )}
         </div>
     );

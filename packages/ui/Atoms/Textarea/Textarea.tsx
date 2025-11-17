@@ -2,7 +2,6 @@ import { useEffect, useState, type ChangeEvent, type FocusEvent, type TextareaHT
 import { useFela } from 'react-fela';
 
 import { InputSizeEnum } from '../../constants';
-
 import {
     errorStyles,
     getContainerStyles,
@@ -53,7 +52,7 @@ export function Textarea({
             setCurrentValue(String(value));
         }
     }, [value]);
-    
+
     const hasValue = currentValue.length > 0;
     const shouldFloatLabel = isFocused || hasValue;
 
@@ -85,8 +84,8 @@ export function Textarea({
                     onBlur={handleBlur}
                     onChange={handleChange}
                     className={css(textareaStyles)}
-                    placeholder=""
-                    autoComplete="off"
+                    placeholder=''
+                    autoComplete='off'
                     aria-invalid={error ? true : undefined}
                     aria-describedby={errorId}
                 />
@@ -98,11 +97,10 @@ export function Textarea({
                 </label>
             </div>
             {error && (
-                <div id={errorId} className={css(errorStyles)} role="alert">
+                <div id={errorId} className={css(errorStyles)} role='alert'>
                     {error}
                 </div>
             )}
         </div>
     );
 }
-

@@ -1,11 +1,12 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useFela } from 'react-fela';
-import type { RecipeListItem } from '@workspace/api';
-import Image from 'next/image';
-import { colors } from '../../../constants';
-import { ClockIcon } from '../../../Atoms/Icons';
-import { StarRating } from '../../../Molecules';
 
+import type { RecipeListItem } from '@workspace/api';
+
+import { ClockIcon } from '../../../Atoms';
+import { colors } from '../../../constants';
+import { StarRating } from '../../../Molecules';
 import {
     contentStyles,
     imageStyles,
@@ -33,7 +34,13 @@ export interface RecipeItemProps {
  * @param convertScoreToStars - Function to convert recipe score to star count
  * @returns Recipe item element with link
  */
-export function RecipeItem({ recipe, href, translate, getRecipeImage, convertScoreToStars }: RecipeItemProps): JSX.Element {
+export function RecipeItem({
+    recipe,
+    href,
+    translate,
+    getRecipeImage,
+    convertScoreToStars,
+}: RecipeItemProps): JSX.Element {
     const { css } = useFela();
 
     const recipeImage = getRecipeImage(recipe.id);
@@ -53,7 +60,10 @@ export function RecipeItem({ recipe, href, translate, getRecipeImage, convertSco
                 <div className={css(ratingContainerStyles)} aria-label={translate('TRANS_RECIPE_RATING', { stars })}>
                     <StarRating stars={stars} starColor={colors.pink} />
                 </div>
-                <div className={css(timeStyles)} aria-label={translate('TRANS_RECIPE_DURATION', { duration: recipe.duration })}>
+                <div
+                    className={css(timeStyles)}
+                    aria-label={translate('TRANS_RECIPE_DURATION', { duration: recipe.duration })}
+                >
                     <ClockIcon color={colors.gray.dark} />
                     <span>{recipe.duration} min</span>
                 </div>

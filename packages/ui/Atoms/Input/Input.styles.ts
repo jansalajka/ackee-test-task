@@ -1,5 +1,4 @@
-import { colors } from '../../constants';
-import { InputSizeEnum, INPUT_SIZE_MAX_WIDTHS } from '../../constants';
+import { colors, INPUT_SIZE_MAX_WIDTHS, InputSizeEnum } from '../../constants';
 
 export const getContainerStyles = (size?: InputSizeEnum) => ({
     position: 'relative',
@@ -60,4 +59,3 @@ export const errorStyles = {
     fontSize: '14px',
     marginTop: '4px',
 };
-

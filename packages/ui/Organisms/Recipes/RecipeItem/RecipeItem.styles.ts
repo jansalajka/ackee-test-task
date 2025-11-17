@@ -1,6 +1,6 @@
 import { colors } from '../../../constants';
-import { colorUtils } from '../../../utils';
 import { typographyStyles } from '../../../styles';
+import { colorUtils } from '../../../utils';
 
 export const itemStyles = {
     display: 'flex',
@@ -44,4 +44,3 @@ export const timeStyles = {
     gap: '4px',
     ...typographyStyles.recipeItemTime,
 };
-

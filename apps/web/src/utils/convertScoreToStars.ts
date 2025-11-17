@@ -10,4 +10,3 @@ export function convertScoreToStars(score: number, totalStars = 5): number {
 
     return Math.max(0, Math.min(totalStars, stars));
 }
-

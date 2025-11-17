@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 import { useFela } from 'react-fela';
 
-import { colors } from '../../constants';
-import { Main } from '../../Organisms/Main';
+import { Main } from '../../Organisms';
 import { pageStyles } from './NewRecipePage.styles';
 
 export interface NewRecipePageTemplateProps {
@@ -24,10 +23,7 @@ export function NewRecipePageTemplate({ header, form }: NewRecipePageTemplatePro
     return (
         <div className={css(pageStyles)}>
             {header}
-            <Main>
-                {form}
-            </Main>
+            <Main>{form}</Main>
         </div>
     );
 }
-

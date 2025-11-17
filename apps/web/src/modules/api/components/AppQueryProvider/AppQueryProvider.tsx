@@ -1,9 +1,8 @@
 import { useState, type ReactNode } from 'react';
 import { HydrationBoundary, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { AppConfig, env } from '@workspace/env';
-
 import { ApiConfigProvider } from '@workspace/api';
+import { AppConfig, env } from '@workspace/env';
 
 export interface AppQueryProviderProps {
     children: ReactNode;

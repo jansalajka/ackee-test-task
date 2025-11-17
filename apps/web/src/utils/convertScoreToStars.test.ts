@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { convertScoreToStars } from './convertScoreToStars';
 
 describe('convertScoreToStars', () => {
@@ -80,5 +81,3 @@ describe('convertScoreToStars', () => {
         });
     });
 });
-
-

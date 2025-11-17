@@ -54,4 +54,3 @@ export function FelaProvider({ children, renderer: providedRenderer }: FelaProvi
 
     return <RendererProvider renderer={rendererToUse}>{children}</RendererProvider>;
 }
-

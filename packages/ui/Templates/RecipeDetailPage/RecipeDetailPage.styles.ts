@@ -1,6 +1,6 @@
-import { colors } from '../../constants';
-import { desktop } from '../../../../apps/web/src/utils/breakpoints';
 import { typographyStyles } from '../../../../apps/web/src/modules/fela/styles/typography';
+import { desktop } from '../../../../apps/web/src/utils/breakpoints';
+import { colors } from '../../constants';
 
 /**
  * Horizontal padding constant
@@ -145,4 +145,3 @@ export const preparationTextStyles = {
     ...typographyStyles.bodyText,
     marginBottom: '32px',
 };
-

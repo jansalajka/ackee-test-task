@@ -3,4 +3,3 @@ export const ratingStyles = {
     alignItems: 'center',
     gap: '4px',
 };
-

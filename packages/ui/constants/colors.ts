@@ -19,4 +19,3 @@ export const colors = {
     white: '#ffffff',
     background: '#ffffff',
 } as const;
-

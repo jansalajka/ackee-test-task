@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import { colors } from '../../constants';
 import { ArrowLeftIcon } from './ArrowLeftIcon';
 
@@ -31,4 +32,3 @@ export const CustomColor: Story = {
         color: colors.pink,
     },
 };
-

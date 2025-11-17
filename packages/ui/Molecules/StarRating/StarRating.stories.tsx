@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import { colors } from '../../constants';
-import { StarRating } from '../StarRating';
+import { StarRating } from './StarRating';
 
 const meta = {
     title: 'UI/Molecules/StarRating',
@@ -61,4 +62,3 @@ export const CustomTotalStars: Story = {
         starColor: colors.pink,
     },
 };
-

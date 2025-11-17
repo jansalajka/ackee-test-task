@@ -1,7 +1,7 @@
 import React, { useEffect, useState, type FocusEvent, type InputHTMLAttributes } from 'react';
 import { useFela } from 'react-fela';
-import { InputSizeEnum } from '../../constants';
 
+import { InputSizeEnum } from '../../constants';
 import {
     errorStyles,
     getContainerStyles,
@@ -34,18 +34,29 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
  * @param props - Additional HTML input attributes
  * @returns Input element with label and optional error message
  */
-export function Input({ label, error, onFocus, onBlur, value, onChange, placeholder, size, defaultValue, ...props }: InputProps): JSX.Element {
+export function Input({
+    label,
+    error,
+    onFocus,
+    onBlur,
+    value,
+    onChange,
+    placeholder,
+    size,
+    defaultValue,
+    ...props
+}: InputProps): JSX.Element {
     const { css } = useFela();
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const initialValue = value ?? defaultValue ?? '';
     const [currentValue, setCurrentValue] = useState<string>(String(initialValue));
-    
+
     useEffect(() => {
         if (value !== undefined) {
             setCurrentValue(String(value));
         }
     }, [value]);
-    
+
     const usePlaceholder = !label;
     const hasValue = currentValue.length > 0;
     const shouldFloatLabel = !usePlaceholder && (isFocused || hasValue);
@@ -79,7 +90,7 @@ export function Input({ label, error, onFocus, onBlur, value, onChange, placehol
                     onChange={handleChange}
                     className={css(inputStyles)}
                     placeholder={usePlaceholder ? placeholder : ' '}
-                    autoComplete="off"
+                    autoComplete='off'
                     aria-invalid={error ? true : undefined}
                     aria-describedby={errorId}
                 />
@@ -93,11 +104,10 @@ export function Input({ label, error, onFocus, onBlur, value, onChange, placehol
                 )}
             </div>
             {error && (
-                <div id={errorId} className={css(errorStyles)} role="alert">
+                <div id={errorId} className={css(errorStyles)} role='alert'>
                     {error}
                 </div>
             )}
         </div>
     );
 }
-

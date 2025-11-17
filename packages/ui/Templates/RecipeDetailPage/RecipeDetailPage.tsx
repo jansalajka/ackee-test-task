@@ -3,16 +3,12 @@ import { useFela } from 'react-fela';
 
 import type { RecipeDetail } from '@workspace/api';
 
+import { ClockIcon, StarIcon } from '../../Atoms';
 import { colors } from '../../constants';
-import { ClockIcon, StarIcon } from '../../Atoms/Icons';
-import { Main } from '../../Organisms/Main';
-import { RateRecipe } from '../../Organisms/Recipes/RateRecipe';
+import { Main } from '../../Organisms';
+import { RateRecipe } from '../../Organisms';
 import {
     contentStyles,
-    getBlurredBackgroundStyles,
-    getHeaderContentContainerStyles,
-    headerBottomStyles,
-    headerSectionStyles,
     ingredientItemStyles,
     ingredientsListStyles,
     introTextStyles,
@@ -22,7 +18,6 @@ import {
     ratingBarStyles,
     ratingLeftStyles,
     ratingRightStyles,
-    recipeTitleStyles,
     sectionHeadingStyles,
 } from './RecipeDetailPage.styles';
 
@@ -53,39 +48,39 @@ export interface RecipeDetailPageTemplateProps {
  */
 export function RecipeDetailPageTemplate({ header, recipe, dependencies }: RecipeDetailPageTemplateProps): JSX.Element {
     const { css } = useFela();
-    const { translate, getRecipeImage, convertScoreToStars, cookies } = dependencies;
-
+    const { translate, convertScoreToStars, cookies } = dependencies;
     const stars = convertScoreToStars(recipe.score);
-    const recipeImage = getRecipeImage(recipe.id);
 
     return (
         <div className={css(pageStyles)}>
             {header}
 
-            <div className={css(ratingBarStyles)} role="region" aria-label={translate('TRANS_RECIPE_RATING', { stars })}>
+            <div
+                className={css(ratingBarStyles)}
+                role='region'
+                aria-label={translate('TRANS_RECIPE_RATING', { stars })}
+            >
                 <div className={css(ratingBarContainerStyles)}>
                     <div className={css(ratingLeftStyles)} aria-label={translate('TRANS_RECIPE_RATING', { stars })}>
                         {Array.from({ length: stars }, (_, index) => (
-                            <StarIcon
-                                key={index}
-                                filled={true}
-                                color={colors.white}
-                                size={32}
-                            />
+                            <StarIcon key={index} filled={true} color={colors.white} size={32} />
                         ))}
                     </div>
-                    <div className={css(ratingRightStyles)} aria-label={translate('TRANS_RECIPE_DURATION', { duration: recipe.duration })}>
+                    <div
+                        className={css(ratingRightStyles)}
+                        aria-label={translate('TRANS_RECIPE_DURATION', { duration: recipe.duration })}
+                    >
                         <ClockIcon color={colors.white} size={20} />
-                        <span>{recipe.duration} {translate('TRANS_MIN')}</span>
+                        <span>
+                            {recipe.duration} {translate('TRANS_MIN')}
+                        </span>
                     </div>
                 </div>
             </div>
 
             <Main>
                 <div className={css(contentStyles)}>
-                    {recipe.description && (
-                        <p className={css(introTextStyles)}>{recipe.description}</p>
-                    )}
+                    {recipe.description && <p className={css(introTextStyles)}>{recipe.description}</p>}
 
                     {recipe.ingredients && recipe.ingredients.length > 0 && (
                         <>
@@ -109,14 +104,7 @@ export function RecipeDetailPageTemplate({ header, recipe, dependencies }: Recip
                 </div>
             </Main>
 
-            {recipe.id && (
-                <RateRecipe
-                    recipeId={recipe.id}
-                    translate={translate}
-                    cookies={cookies}
-                />
-            )}
+            {recipe.id && <RateRecipe recipeId={recipe.id} translate={translate} cookies={cookies} />}
         </div>
     );
 }
-

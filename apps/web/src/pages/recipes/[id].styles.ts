@@ -1,6 +1,7 @@
 import { colors } from '@workspace/ui';
-import { desktop } from '~utils/breakpoints';
+
 import { typographyStyles } from '~modules/fela/styles/typography';
+import { desktop } from '~utils/breakpoints';
 
 /**
  * Horizontal padding constant
@@ -177,5 +178,3 @@ export const errorTitleStyles = {
     ...typographyStyles.errorTitle,
     margin: '0 0 16px 0',
 };
-
-

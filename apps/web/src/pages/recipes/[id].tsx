@@ -4,14 +4,23 @@ import { useRouter } from 'next/router';
 import { useFela } from 'react-fela';
 
 import { useRecipe } from '@workspace/api';
+import {
+    ArrowLeftIcon,
+    colors,
+    ErrorPageTemplate,
+    Header,
+    HeaderHoverColorEnum,
+    LoadingPageTemplate,
+    PlusIcon,
+    RecipeDetailPageTemplate,
+    RecipePageHeader,
+} from '@workspace/ui';
 
 import { routes } from '~constants';
-import { colors, HeaderHoverColorEnum } from '@workspace/ui';
 import { useTrans } from '~modules/trans';
-import { cookies } from '~utils/cookies';
 import { convertScoreToStars } from '~utils/convertScoreToStars';
+import { cookies } from '~utils/cookies';
 import { getRecipeImage } from '~utils/getRecipeImage';
-import { ArrowLeftIcon, ErrorPageTemplate, Header, LoadingPageTemplate, PlusIcon, RecipeDetailPageTemplate, RecipePageHeader } from '@workspace/ui';
 
 import {
     getBlurredBackgroundStyles,
@@ -34,7 +43,11 @@ const RecipeDetailPage: NextPage = () => {
     const { data: recipe, isLoading, isError, error } = useRecipe(recipeId);
 
     if (isLoading) {
-        return <LoadingPageTemplate header={<RecipePageHeader homeHref={routes.home} newRecipeHref={routes.recipeNew} />} />;
+        return (
+            <LoadingPageTemplate
+                header={<RecipePageHeader homeHref={routes.home} newRecipeHref={routes.recipeNew} />}
+            />
+        );
     }
 
     if (isError) {
@@ -63,7 +76,7 @@ const RecipeDetailPage: NextPage = () => {
 
     const headerContent = (
         <div className={css(headerSectionStyles)}>
-            <div className={css(getBlurredBackgroundStyles(recipeImage))} aria-hidden="true" />
+            <div className={css(getBlurredBackgroundStyles(recipeImage))} aria-hidden='true' />
             <div className={css(getHeaderContentContainerStyles(recipeImage))}>
                 <div className={css(headerBottomStyles)}>
                     <h1 className={css(recipeTitleStyles)}>{recipe.name}</h1>
@@ -74,7 +87,7 @@ const RecipeDetailPage: NextPage = () => {
 
     const header = (
         <Header
-            headline=""
+            headline=''
             left={
                 <Link href={routes.home} aria-label={trans.translate('TRANS_NAVIGATE_BACK')}>
                     <ArrowLeftIcon color={colors.white} />
@@ -105,4 +118,3 @@ const RecipeDetailPage: NextPage = () => {
 };
 
 export default RecipeDetailPage;
-
