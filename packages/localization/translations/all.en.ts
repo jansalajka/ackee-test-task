@@ -7,4 +7,7 @@ export default {
     'general.logout': 'Logout',
     'general.login': 'Login',
     'form.error.required': 'This field is required.',
+    TRANS_DESCRIPTION_REQUIRED: 'Description is required.',
+    TRANS_INFO_REQUIRED: 'Preparation steps are required.',
+    TRANS_INGREDIENT_REQUIRED: 'Ingredient is required.',
 } as const;

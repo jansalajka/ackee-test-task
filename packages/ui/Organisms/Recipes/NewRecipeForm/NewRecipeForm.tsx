@@ -21,15 +21,15 @@ const createRecipeSchema = (translate: (key: string) => string) => z.object({
             message: translate('TRANS_RECIPE_NAME_MUST_CONTAIN_ACKEE'),
         },
     ),
-    description: z.string().optional(),
-    ingredients: z.array(z.string()).optional(),
+    description: z.string().min(1, translate("TRANS_DESCRIPTION_REQUIRED")),
+    ingredients: z.array(z.string().min(1, translate("TRANS_INGREDIENT_REQUIRED"))),
     duration: z
         .number({
             required_error: translate('TRANS_DURATION_REQUIRED'),
             invalid_type_error: translate('TRANS_DURATION_MUST_BE_NUMBER'),
         })
         .min(1, translate('TRANS_DURATION_MIN_1')),
-    info: z.string().optional(),
+    info: z.string().min(1, translate("TRANS_INFO_REQUIRED")),
 });
 
 type CreateRecipeFormData = z.infer<ReturnType<typeof createRecipeSchema>>;
@@ -59,7 +59,10 @@ export function NewRecipeForm({ dependencies, onPendingChange }: NewRecipeFormPr
     } = useForm<CreateRecipeFormData>({
         resolver: zodResolver(createRecipeSchema(translate)),
         defaultValues: {
+            name: '',
+            description: '',
             ingredients: [''],
+            info: '',
         },
     });
 
@@ -74,16 +77,12 @@ export function NewRecipeForm({ dependencies, onPendingChange }: NewRecipeFormPr
     };
 
     const handleFormSubmit = async (data: CreateRecipeFormData) => {
-        const ingredientsArray = data.ingredients
-            ? data.ingredients.filter((item) => item.trim().length > 0)
-            : undefined;
-
         const requestData: CreateRecipeRequest = {
-            name: data.name,
-            description: data.description || undefined,
-            ingredients: ingredientsArray && ingredientsArray.length > 0 ? ingredientsArray : undefined,
+            name: data.name.trim(),
+            description: data.description.trim(),
+            ingredients: data.ingredients.map(item => item.trim()),
             duration: data.duration,
-            info: data.info || undefined,
+            info: data.info.trim(),
         };
 
         await onSubmit(requestData);
