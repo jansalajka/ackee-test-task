@@ -27,6 +27,19 @@ const nextConfig: NextConfig = {
         defaultLocale,
     },
 
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'picsum.photos',
+            },
+            {
+                protocol: 'https',
+                hostname: '*.picsum.photos',
+            },
+        ],
+    },
+
     transpilePackages: [] satisfies Dependency[],
 
     poweredByHeader: false,
@@ -50,9 +63,10 @@ const nextConfig: NextConfig = {
                     /**
                      * Cross-origin resource loading will be blocked by COEP unless:
                      *  - The resource is requested in no-cors mode and the response includes a Cross-Origin-Resource-Policy header that allows it to be loaded into the document origin.
-                     *  - The resource is requested in cors mode and the resource supports and is permitted by CORS. (e.g. by using the crossorigin attribute, or in JavaScript by making a request with {mode="cors"}).    
+                     *  - The resource is requested in cors mode and the resource supports and is permitted by CORS. (e.g. by using the crossorigin attribute, or in JavaScript by making a request with {mode="cors"}).
+                     * Using 'credentialless' instead of 'require-corp' to allow cross-origin images (e.g., from picsum.photos) without requiring CORP headers.
                      */
-                    value: 'require-corp',
+                    value: 'credentialless',
                 },
                 {
                     key: 'Cross-Origin-Opener-Policy',
@@ -109,8 +123,8 @@ const nextConfig: NextConfig = {
                         // Allows fetch/xhr requests to the same origin, Google APIs, fake API, and Apiary mock
                         `connect-src 'self' https://*.googleapis.com https://my-json-server.typicode.com https://*.apiary-mock.com ${new URL(env.NEXT_PUBLIC_SENTRY_REPORT_URI).origin}`,
 
-                        // Allows images to be loaded from the same origin and Google APIs, and data URIs
-                        `img-src 'self' https://www.google.com data:`,
+                        // Allows images to be loaded from the same origin, Google APIs, Picsum Photos (including CDN), and data URIs
+                        `img-src 'self' https://www.google.com https://picsum.photos https://*.picsum.photos data:`,
 
                         // Allows fonts to be loaded from the same origin and Google Fonts
                         `font-src 'self' https://fonts.gstatic.com data:`,

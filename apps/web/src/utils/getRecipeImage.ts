@@ -1,15 +1,10 @@
-const RECIPE_IMAGES = [
-    '/image/recipe-1.png',
-    '/image/recipe-2.png',
-    '/image/recipe-3.png',
-] as const;
-
 /**
- * Get a random recipe image based on a seed (e.g., recipe ID)
+ * Get a placeholder recipe image based on a seed (e.g., recipe ID)
  * This ensures the same recipe always gets the same image
+ * Uses Picsum Photos API with food category for deterministic food images
  *
  * @param seed - Seed value to determine which image to use (e.g., recipe ID)
- * @returns Path to a recipe image
+ * @returns URL to a placeholder recipe image
  */
 export function getRecipeImage(seed: string): string {
     let hash = 0;
@@ -21,8 +16,8 @@ export function getRecipeImage(seed: string): string {
         hash = hash & hash; // Convert to 32-bit integer
     }
 
-    const index = Math.abs(hash) % RECIPE_IMAGES.length;
+    const imageId = Math.abs(hash) % 1000;
 
-    return RECIPE_IMAGES[index] || RECIPE_IMAGES[0];
+    return `https://picsum.photos/seed/food-${imageId}/800/600`;
 }
 

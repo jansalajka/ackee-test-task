@@ -26,7 +26,7 @@ export const Default: Story = {
 };
 
 const WithContentRender = (args: Parameters<typeof Header>[0]) => {
-    const headerContent = <RecipeHeaderContent imageUrl="/image/recipe-1.png" title="Recipe Title" />;
+    const headerContent = <RecipeHeaderContent imageUrl="https://picsum.photos/seed/food-1/800/600" title="Recipe Title" />;
 
     return <Header {...args} content={headerContent} />;
 };
@@ -44,7 +44,7 @@ export const WithContent: Story = {
 };
 
 const WithBlurredBackgroundRender = (args: Parameters<typeof Header>[0]) => {
-    const headerContent = <RecipeHeaderContent imageUrl="/image/recipe-2.png" title="Recipe with Background" />;
+    const headerContent = <RecipeHeaderContent imageUrl="https://picsum.photos/seed/food-2/800/600" title="Recipe with Background" />;
 
     return <Header {...args} content={headerContent} />;
 };
